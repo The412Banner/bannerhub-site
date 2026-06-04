@@ -1,0 +1,8 @@
+# scratch extraction dumps (raw release-note copies used while authoring)
+_data/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+__pycache__/

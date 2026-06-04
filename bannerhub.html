@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BannerHub — features &amp; changelog</title>
+<meta name="description" content="BannerHub — the full-featured flagship based on GameHub 5.3.5 ReVanced. GOG/Epic/Amazon stores with DLC, cloud saves and EOS auth, AI Frame Generation, PC-accurate rumble, download manager, front-end export and a 4,800-config community library. Full feature list and per-release changelog.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b8cff'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="why.html">Why BannerHub</a>
+      <a href="compare.html">Compare</a>
+      <a href="lite.html">BannerHub Lite</a>
+      <a href="bannerhub.html">BannerHub</a>
+      <a href="v6.html">BannerHub v6</a>
+      <a href="v6-privacy.html">Privacy</a>
+      <a href="apis.html">APIs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="credits.html">Credits</a>
+      <a class="nav-cta" href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom:26px">
+    <p class="eyebrow">Based on GameHub 5.3.5 ReVanced · by PlayDay</p>
+    <h1>BannerHub</h1>
+    <p class="lead" style="margin:0 auto">The full-featured flagship. BannerHub brings deep GOG / Epic / Amazon integrations (DLC, cloud saves, EOS online auth), an in-app downloads manager, AI Frame Generation, PC-accurate rumble, front-end export and a thriving community-config library — all on the mature GameHub 5.3.5 ReVanced base.</p>
+    <div class="pill-row" style="justify-content:center;margin-top:20px">
+      <span class="badge ver">Latest: <span data-auto="ver:full">v3.7.5</span></span>
+      <span class="badge">pkg <code>banner.hub</code></span>
+      <span class="badge">9 variants</span>
+      <span class="badge blue">Pinned to 5.3.5 base (Steam card support)</span>
+    </div>
+    <div class="btn-row" style="justify-content:center;margin-top:22px">
+      <a class="btn btn-primary" href="https://github.com/The412Banner/BannerHub/releases/latest" target="_blank" rel="noopener">Download latest</a>
+      <a class="btn btn-ghost" href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">Source on GitHub</a>
+    </div>
+  </section>
+
+  <!-- FEATURE SET -->
+  <section class="section wrap" style="padding-top:30px">
+    <h2 class="fade-up">What's in BannerHub</h2>
+    <div class="grid grid-2" style="margin-top:20px">
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🎮 Store integrations</h3>
+        <ul class="flist">
+          <li><b>GOG</b> — OAuth2, Gen 1 &amp; Gen 2 downloads, SHA-256 chunk verification, multi-CDN failover, cloud saves, per-game DLC.</li>
+          <li><b>Epic</b> — OAuth2, catalog sync, 6-parallel chunked downloads, free-games section, full-screen detail pages, <b>Epic Online Services</b> online auth, DLC.</li>
+          <li><b>Amazon</b> — PKCE OAuth2, GetEntitlements sync, manifest.proto parsing, FuelPump launch, SDK DLL deployment, DLC.</li>
+          <li>Update checker, install-size &amp; release-date display, and gamepad navigation across all store tabs.</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">⚙️ Component Manager</h3>
+        <ul class="flist">
+          <li>In-app downloader for DXVK, VKD3D, Box64, FEXCore and GPU drivers (Turnip).</li>
+          <li>Multiple repository sources including The412Banner Nightlies.</li>
+          <li>Full <code>.wcp</code> / <code>.zip</code> component control — add, inject, back up, remove.</li>
+          <li>One-click install of any components a community config requires.</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🚀 Performance &amp; control</h3>
+        <ul class="flist">
+          <li><b>AI Frame Generation</b> — in-game menu, 6 quality presets, 2×/3×/4× multiplier, custom flow scale (≈1.8–1.9× FPS on supported Adreno).</li>
+          <li><b>PC-accurate Vibration / Rumble</b> — independent dual-motor XInput rumble, sustained holds, instant release, multi-controller.</li>
+          <li><b>Winlator HUD</b> — Normal / Extra-Detailed / Konkr display modes. <b>RTS touch controls</b>, <b>CPU core affinity</b>, <b>VRAM unlock</b> (6/8/12/16 GB), sustained-perf &amp; GPU-clock toggles.</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🗂️ Downloads, configs &amp; tooling</h3>
+        <ul class="flist">
+          <li><b>Background download service</b> + in-app cross-store download manager with live progress &amp; notifications.</li>
+          <li><b>Community Config System</b> — search / view / download / export per-game configs; ~4,800 device-specific configs; no account needed; cross-compatible with Lite.</li>
+          <li><b>Wine Task Manager</b> — Container Info, Applications &amp; Processes (kill), and a prefix Launch browser.</li>
+          <li><b>Front-end export</b> (Beacon / ES-DE), offline launch for imported games, Japanese localization, dynamic versioning.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card fade-up" style="margin-top:22px">
+      <h3 style="margin-top:0">📦 Variants &amp; packaging</h3>
+      <p style="margin-top:0">Nine APK variants install side-by-side via different package names — Normal (<code>banner.hub</code>), Normal-GHL (<code>gamehub.lite</code>), PuBG, AnTuTu, alt-AnTuTu, PuBG-CrossFire, Ludashi, Genshin and Original. Performance-spoof variants push the device harder (more heat) — use with proper cooling. All signed with a consistent key for in-place updates.</p>
+    </div>
+  </section>
+
+  <!-- INHERITED -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="card fade-up" style="border-left:3px solid var(--primary)">
+      <span class="badge blue">🧬 Inherited from the base</span>
+      <h2 style="margin-top:.5em">Built on the GameHub 5.3.5 ReVanced base</h2>
+      <p>BannerHub is built on the GameHub 5.3.5 <b>ReVanced</b> base maintained by <b>PlayDay</b> (<a href="https://github.com/playday3008/gamehub-patches" target="_blank" rel="noopener">playday3008/gamehub-patches</a>, GPLv3) — a set of ReVanced Patcher modifications to XiaoJi GameHub. Much of BannerHub's "core" behaviour comes from that patch lineage; BannerHub layers its store integrations, AI Frame Generation wiring, vibration and config system on top.</p>
+      <div class="grid grid-2" style="margin-top:6px">
+        <div>
+          <h3 style="margin-top:.4em">From the ReVanced patch set</h3>
+          <ul class="flist">
+            <li><b>Bypass login</b> — use the app with no account.</li>
+            <li><b>Privacy patches</b> — disable analytics, push, heartbeat playtime, OTA updates &amp; cloud timer; manifest cleanup &amp; promo removal.</li>
+            <li><b>Mute UI sounds</b>, <b>file-manager access</b> provider, and an <b>external launcher</b> hook.</li>
+            <li><b>Steam patches</b> — force Steam TCP, force Steam input, Steam CDN, SD-card storage, Steam playtime.</li>
+            <li><b>Performance-metrics overlay</b> and <b>RTS touch controls</b>.</li>
+            <li><b>Game-ID display</b>, hide-recommended-games, compatibility fallback, account-currency, settings menu, package/app rename.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-top:.4em">…and from GameHub 5.3.5 itself</h3>
+          <ul class="flist dot">
+            <li>The Wine + Box64 / FEX runtime for Windows games.</li>
+            <li>Container / Wine-prefix management and the in-game sidebar.</li>
+            <li>Native Steam client integration (the 5.3.5 base is pinned for Steam-card support).</li>
+            <li>The DXVK / VKD3D / Box64 component pipeline.</li>
+          </ul>
+          <p class="muted" style="margin-top:14px;font-size:.86rem">BannerHub then <b>adds</b>: GOG / Epic (incl. EOS) / Amazon stores with DLC &amp; cloud saves, the in-app download manager, AI Frame Generation, PC-accurate rumble, front-end export and the community-config library (see above).</p>
+        </div>
+      </div>
+      <p class="muted" style="margin:16px 0 0;font-size:.86rem">Credit &amp; lineage: GameHub Patches © PlayDay (playday3008), GPLv3; ReVanced framework © ReVanced; GameHub © XiaoJi. The upstream patch project evolves independently — this lists its GameHub-targeted feature patches as the inherited base.</p>
+    </div>
+  </section>
+
+  <!-- CHANGELOG -->
+  <section class="section wrap" style="padding-top:10px">
+    <div class="sec-head"><h2>Release history</h2><p class="muted">Every notable feature and fix, newest first. Each version links to its full GitHub release notes.</p></div>
+
+    <div class="timeline">
+
+      <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v3.7.5</span><span class="date">2026-05-21</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.7.5" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li><b>Offline launch for imported PC games</b> — any non-Steam game that has launched online once will now launch with no network (config / recommendation / dependency tasks are skipped offline and re-sync on reconnect).</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.7.4</span><span class="date">2026-05-16</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.7.4" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li><b>Preload-free rumble</b> — removes <code>libevshim.so</code> and patches <code>winebus.so</code> on disk instead, eliminating the <code>c000007b</code> crash that broke every x86_64 / Box64 game launch on v3.7.0–v3.7.3. Sustained rumble preserved. <span class="muted">(TideGear PR #91)</span></li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.7.3</span><span class="date">2026-05-14</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.7.3" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>GOG multi-CDN failover</b> + resumable PARTIAL install state + a CDN picker with refresh, so one bad endpoint no longer kills an install.</li>
+          <li><b>AI Frame Generation reliability</b> — overlay survives backgrounding (onResume re-apply), gear hides when off, cleaner translucent dialog.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.7.2</span><span class="date">2026-05-12</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.7.2" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li>Hotfix — the launch-time auto-update dialog no longer probes upstream GameHub (it was offering to replace BannerHub with stock GameHub 6.0.1).</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.7.1</span><span class="date">2026-05-11</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.7.1" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li>Hotfix — Settings → About → "Check Update" no longer phones upstream GameHub; BannerHub is intentionally pinned to the 5.3.5 / versionCode 78 base (required for Steam-card visibility).</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.7.0</span><span class="date">2026-05-09</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.7.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>In-game AI Frame Generation menu</b> — drives GameHub 6.0.1's optical-flow engine: 6 presets, 2×/3×/4× multiplier, custom flow-scale slider, persistent across launches.</li>
+          <li><b>PC-accurate Vibration / Rumble</b> — independent low/high motors, single-motor blend fallback, sustained holds, instant release, multi-controller. <span class="muted">(TideGear PR #80)</span></li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.6.1</span><span class="date">2026-05-05</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.6.1" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li><b>Epic Online Services — Phase 1 (online auth)</b> — EOS-integrated Epic games (e.g. Fall Guys) now authenticate for online multiplayer, with a blue "EOS" badge in your Epic library. <span class="muted">(ported from GameNative)</span></li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.6.0</span><span class="date">2026-05-05</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.6.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li>SD-card toggle decoupled from Steam; per-download speed picker (4–24 threads / Auto); Epic CDN auto-ranking by latency; downloads-screen UX (store badges, tappable cards).</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.5.0</span><span class="date">2026-04-27</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.5.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li>External storage (SD card) for GOG / Epic / Amazon downloads; install-location display with badges; uninstall spinner &amp; reliability; GOG cosmetic-file skip.</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.4.0 – v3.4.1</span><span class="date">2026-04-25</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.4.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li>ES-DE frontend export; <b>dynamic versioning</b> (BannerHub reports its own version to Android for Obtainium); v3.4.1 hotfix restored the Frontend Export option in stable builds.</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.3.0</span><span class="date">2026-04-25</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.3.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li>Background download foreground-service; in-app cross-store download manager with live progress; dashboard download shortcut with live count badge.</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.2.0</span><span class="date">2026-04-24</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.2.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li>Expanded config detail screen (up to 11 rows — Wine/DXVK/VKD3D/GPU driver/FEX/Box64/etc.); <b>Frontend Export</b> to Beacon; Beacon integration fixes.</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.1.0</span><span class="date">2026-04-14</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.1.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li>Full-screen game detail pages (GOG/Epic/Amazon); update checker; per-game DLC management; <b>cloud saves</b> (GOG + Epic); Epic free-games redesign.</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v3.0.0</span><span class="date">2026-04-14</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.0.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul><li>Config metadata <code>app_source</code> tagging and documented config cross-compatibility with BannerHub Lite (shared SharedPreferences keys).</li></ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v2.9.2 – v2.9.3</span><span class="date">2026-04-05 – 04-13</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases" target="_blank" rel="noopener">all releases ↗</a></div>
+        <ul><li>Export/Import config fixes (correct gameId resolution, component scoping), GOG Akamai CDN URL fix, Genshin package-name casing fix.</li></ul>
+      </div>
+
+    </div>
+
+    <p class="muted" style="margin-top:6px">Full history, pre-releases and assets on the <a href="https://github.com/The412Banner/BannerHub/releases" target="_blank" rel="noopener">GitHub releases page</a>.</p>
+  </section>
+
+  <section class="wrap section-tight">
+    <div class="note">
+      <p><strong>Credits:</strong> AI Frame Generation engine by the GameHub team; PC-accurate Vibration / Rumble by <a href="https://github.com/TideGear" target="_blank" rel="noopener">TideGear</a>; GOG &amp; EOS reliability work ported from <a href="https://github.com/utkarshdalal/GameNative" target="_blank" rel="noopener">GameNative</a>. Please go support GameNative.</p>
+    </div>
+  </section>
+
+  <!-- DOCS & REPORTS -->
+  <section class="section wrap" style="padding-top:6px">
+    <div class="card fade-up">
+      <span class="badge blue">📑 Documentation &amp; reports</span>
+      <h2 style="margin-top:.5em">Master maps &amp; deep-dive reports</h2>
+      <p>The BannerHub repo carries an unusually deep set of engineering reports — including the <b>master map</b> for the GameHub 5.3.5 codebase:</p>
+      <div class="grid grid-2">
+        <ul class="flist dot">
+          <li><a href="https://github.com/The412Banner/BannerHub/blob/main/BANNERHUB_MASTER_MAP.md" target="_blank" rel="noopener">BannerHub Master Map</a> — the 5.3.5 codebase map.</li>
+          <li><a href="https://github.com/The412Banner/BannerHub/blob/main/PROGRESS_LOG.md" target="_blank" rel="noopener">Progress log</a> — running dev journal.</li>
+          <li><a href="https://github.com/The412Banner/BannerHub/blob/main/AI_FRAME_GENERATION_REPORT.md" target="_blank" rel="noopener">AI Frame Generation report</a> &amp; <a href="https://github.com/The412Banner/BannerHub/blob/main/gamehub_reports/VK_NV_OPTICAL_FLOW_ON_ADRENO.md" target="_blank" rel="noopener">VK_NV_optical_flow on Adreno</a>.</li>
+        </ul>
+        <ul class="flist dot">
+          <li><a href="https://github.com/The412Banner/BannerHub/tree/main/game-store-reports" target="_blank" rel="noopener">Store implementation reports</a> — GOG / Epic / Amazon / Steam.</li>
+          <li><a href="https://github.com/The412Banner/BannerHub/blob/main/COMMUNITY_CONFIG_REPORT.md" target="_blank" rel="noopener">Community config report</a> &amp; <a href="https://github.com/The412Banner/BannerHub/blob/main/GAMENATIVE_RESEARCH.md" target="_blank" rel="noopener">GameNative research</a>.</li>
+          <li><a href="https://github.com/The412Banner/BannerHub/tree/main/migration" target="_blank" rel="noopener">GameHub 6 migration</a> — architecture, feature specs &amp; injection map.</li>
+          <li><a href="https://github.com/The412Banner/BannerHub/blob/main/release_notes_v3.7.5.md" target="_blank" rel="noopener">v3.7.5 release notes</a> &amp; <a href="https://github.com/The412Banner/BannerHub/releases" target="_blank" rel="noopener">all releases</a>.</li>
+        </ul>
+      </div>
+      <p class="muted" style="margin-bottom:0;font-size:.88rem">Full lineage &amp; contributor credits are on the <a href="credits.html">Credits page</a>.</p>
+    </div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="card center fade-up" style="background:linear-gradient(180deg,var(--primary-dim),var(--bg-2))">
+      <h2 style="margin-bottom:.3em">Get BannerHub</h2>
+      <p class="lead" style="margin:0 auto 22px">Install only official stable releases. Pick the variant matching your existing GameHub package; uninstall first if the signing cert differs.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="https://github.com/The412Banner/BannerHub/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:full">v3.7.5</span></a>
+        <a class="btn btn-ghost" href="compare.html">Compare with Lite &amp; v6</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+        <p class="foot-disc muted" style="margin-top:14px">Community builds of GameHub / GameHub&nbsp;Lite for running PC games on Android — privacy-hardened, account-free, with curated components.</p>
+      </div>
+      <div><h4>Projects</h4><a href="lite.html">BannerHub Lite</a><a href="bannerhub.html">BannerHub</a><a href="v6.html">BannerHub v6</a></div>
+      <div><h4>Learn</h4><a href="why.html">Why BannerHub</a><a href="compare.html">Compare versions</a><a href="v6-privacy.html">Privacy hardening</a><a href="apis.html">APIs &amp; backends</a><a href="faq.html">FAQ</a><a href="credits.html">Credits</a></div>
+      <div><h4>Source &amp; community</h4><a href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub org</a><a href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Lite repo</a><a href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">BannerHub repo</a><a href="https://github.com/The412Banner/bannerhub-revanced" target="_blank" rel="noopener">v6 repo</a><a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> The412Banner · Community project.</span>
+      <span class="foot-disc">Not affiliated with XiaoJi, GameHub, Valve, Epic, GOG or Amazon. BannerHub modifies GameHub / GameHub&nbsp;Lite; all trademarks belong to their respective owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

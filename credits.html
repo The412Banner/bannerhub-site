@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Credits — BannerHub</title>
+<meta name="description" content="BannerHub stands on years of upstream open-source work. Full credits: the translation layers, host app, frameworks, the base-app maintainers, and every contributor whose PRs and features we integrated.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b8cff'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="why.html">Why BannerHub</a>
+      <a href="compare.html">Compare</a>
+      <a href="lite.html">BannerHub Lite</a>
+      <a href="bannerhub.html">BannerHub</a>
+      <a href="v6.html">BannerHub v6</a>
+      <a href="v6-privacy.html">Privacy</a>
+      <a href="apis.html">APIs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="credits.html">Credits</a>
+      <a class="nav-cta" href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom:24px">
+    <p class="eyebrow">Standing on the shoulders of giants</p>
+    <h1>Credits</h1>
+    <p class="lead" style="margin:0 auto">BannerHub is a patch bundle — almost nothing under the hood is ours. Every game launch rides on years of upstream open-source work. Huge thanks to everyone below. If an attribution is wrong, missing, or you'd like to be removed, <a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">tell us</a> and we'll fix it.</p>
+  </section>
+
+  <!-- TRANSLATION / RUNTIME -->
+  <section class="section wrap" style="padding-top:14px">
+    <h2 class="fade-up">Translation layers &amp; runtime</h2>
+    <p class="muted" style="margin-top:-6px">The components that actually run Windows games — served under all three BannerHub builds.</p>
+    <div class="table-scroll fade-up">
+      <table>
+        <thead><tr><th>Project</th><th>Role</th><th>Maintainer(s)</th></tr></thead>
+        <tbody>
+          <tr><td class="feat"><a href="https://github.com/doitsujin/dxvk" target="_blank" rel="noopener">DXVK</a></td><td>Direct3D 9 / 10 / 11 → Vulkan translation</td><td>Philip Rebohle (<a href="https://github.com/doitsujin" target="_blank" rel="noopener">@doitsujin</a>) &amp; contributors</td></tr>
+          <tr><td class="feat"><a href="https://github.com/HansKristian-Work/vkd3d-proton" target="_blank" rel="noopener">VKD3D-Proton</a></td><td>Direct3D 12 → Vulkan translation (Proton fork)</td><td>Hans-Kristian Arntzen &amp; Valve / VKD3D-Proton contributors</td></tr>
+          <tr><td class="feat"><a href="https://github.com/ptitSeb/box64" target="_blank" rel="noopener">Box64</a></td><td>x86-64 → AArch64 dynamic recompiler</td><td>Sébastien Chevalier (<a href="https://github.com/ptitSeb" target="_blank" rel="noopener">@ptitSeb</a>) &amp; contributors</td></tr>
+          <tr><td class="feat"><a href="https://github.com/FEX-Emu/FEX" target="_blank" rel="noopener">FEX-Emu (FEXCore)</a></td><td>x86 / x86-64 → AArch64 emulator with Wine + JIT</td><td>The FEX-Emu team</td></tr>
+          <tr><td class="feat"><a href="https://gitlab.freedesktop.org/mesa/mesa" target="_blank" rel="noopener">Mesa Turnip</a></td><td>Open-source Vulkan driver for Qualcomm Adreno GPUs</td><td>Rob Clark, Connor Abbott, Danylo Piliaiev &amp; many contributors</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:12px;font-size:.88rem">Adreno Turnip forks BannerHub serves: <a href="https://github.com/The412Banner/Banners-Turnip" target="_blank" rel="noopener">Banners-Turnip</a>, <a href="https://github.com/StevenMXZ" target="_blank" rel="noopener">StevenMXZ</a>, <a href="https://github.com/whitebelyash" target="_blank" rel="noopener">whitebelyash</a> — plus component sources K11MCH1, MTR and Arihany WCPHub surfaced in the in-app downloader.</p>
+  </section>
+
+  <!-- HOST + FRAMEWORKS + BASES -->
+  <section class="section wrap" style="padding-top:0">
+    <h2 class="fade-up">Host app, frameworks &amp; the base builds</h2>
+    <div class="table-scroll fade-up">
+      <table>
+        <thead><tr><th>Project</th><th>Role</th><th>Maintainer(s)</th></tr></thead>
+        <tbody>
+          <tr><td class="feat"><a href="https://gamehub.xiaoji.com/" target="_blank" rel="noopener">XiaoJi GameHub</a></td><td>The host app we patch — and the AI Frame-Generation engine (<code>libGameScopeVK</code>)</td><td>The XiaoJi GameHub Team</td></tr>
+          <tr><td class="feat"><a href="https://revanced.app/" target="_blank" rel="noopener">ReVanced</a></td><td>Patcher framework, CLI &amp; patch SDK (used by v6)</td><td>The <a href="https://github.com/revanced" target="_blank" rel="noopener">ReVanced</a> team</td></tr>
+          <tr><td class="feat"><a href="https://github.com/Producdevity/gamehub-lite" target="_blank" rel="noopener">GameHub Lite</a></td><td>Base of <a href="lite.html">BannerHub Lite</a> — telemetry-free lightweight GameHub</td><td>Producdevity, with contributors sgumil, ObfuscatedVoid &amp; <a href="https://github.com/Nightwalker743" target="_blank" rel="noopener">@Nightwalker743</a> (RTS Touch Controls)</td></tr>
+          <tr><td class="feat"><a href="https://github.com/playday3008/gamehub-patches" target="_blank" rel="noopener">GameHub Patches</a></td><td>The GameHub 5.3.5 ReVanced base of <a href="bannerhub.html">BannerHub</a> (GPLv3)</td><td>PlayDay (<a href="https://github.com/playday3008" target="_blank" rel="noopener">@playday3008</a>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FEATURE PORTS / PRs -->
+  <section class="section wrap" style="padding-top:0">
+    <h2 class="fade-up">Feature ports &amp; pull requests we integrated</h2>
+    <p class="muted" style="margin-top:-6px">Specific contributors whose work BannerHub adapted (with permission where applicable).</p>
+    <div class="grid grid-2">
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🎮 Controller vibration / rumble</h3>
+        <ul class="flist">
+          <li><b><a href="https://github.com/TideGear" target="_blank" rel="noopener">TideGear</a></b> — the entire PC-accurate vibration patch: original rumble port (<a href="https://github.com/The412Banner/BannerHub/pull/80" target="_blank" rel="noopener">PR #80</a>), the preload-free <code>winebus.so</code> rework (<a href="https://github.com/The412Banner/BannerHub/pull/91" target="_blank" rel="noopener">PR #91</a>), and v6 menu icons + portrait dialog (PR #6). Via <a href="https://github.com/TideGear/GameHub-Vibration-Fix" target="_blank" rel="noopener">GameHub-Vibration-Fix</a>.</li>
+          <li><b><a href="https://github.com/utkarshdalal/GameNative" target="_blank" rel="noopener">GameNative</a></b> — the upstream Wine-on-Android rumble lineage (PR #1214) TideGear's fix derives from.</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🛒 GOG &amp; Epic reliability</h3>
+        <ul class="flist">
+          <li><b><a href="https://github.com/utkarshdalal" target="_blank" rel="noopener">Utkarsh Dalal</a></b> &amp; GameNative contributors — GOG multi-CDN failover (PR #1220 / #1219) and Epic Online Services (PR #1286).</li>
+          <li><b>Jeremy Bernstein</b> — GOG co-author (PR #1219).</li>
+          <li><b>Bart Zaalberg</b> — GOG CDN picker (PR #1215).</li>
+          <li><b>Joshua Tam</b> — resumable PARTIAL install state (PR #1277).</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">⚡ AI Frame Generation wiring</h3>
+        <ul class="flist">
+          <li><b>The GameHub team</b> — the frame-interpolation engine itself.</li>
+          <li><b><a href="https://github.com/teldommm" target="_blank" rel="noopener">teldommm</a></b> — frame-gen onResume reliability + dialog cleanup (<a href="https://github.com/The412Banner/Bannerhub-Lite/pull/5" target="_blank" rel="noopener">Bannerhub-Lite PR #5</a>).</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🧩 Community &amp; tooling</h3>
+        <ul class="flist">
+          <li><b>The412Banner community</b> — game configs, device testing &amp; the BannerHub builds.</li>
+          <li><b><a href="https://github.com/RobZombie9043/steam-files-es-de" target="_blank" rel="noopener">RobZombie9043</a></b> — the steam-files-ES-DE community library (front-end export fallback).</li>
+          <li><b><a href="https://github.com/ImranR98/Obtainium" target="_blank" rel="noopener">ImranR98 — Obtainium</a></b> — the recommended in-app updater.</li>
+          <li><b>Crowdin translators</b> — Japanese localization (3,534 strings).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section-tight">
+    <div class="note">
+      <p>Every patch's per-release credits live in the GitHub release notes, and each repo carries a fuller Credits section: <a href="https://github.com/The412Banner/bannerhub-revanced#credits" target="_blank" rel="noopener">v6 README → Credits</a>. If any attribution here is wrong, missing, or under the wrong licence, please <a href="https://github.com/The412Banner/bannerhub-revanced/issues" target="_blank" rel="noopener">open an issue</a> or ping the <a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+        <p class="foot-disc muted" style="margin-top:14px">Community builds of GameHub / GameHub&nbsp;Lite for running PC games on Android — privacy-hardened, account-free, with curated components.</p>
+      </div>
+      <div><h4>Projects</h4><a href="lite.html">BannerHub Lite</a><a href="bannerhub.html">BannerHub</a><a href="v6.html">BannerHub v6</a></div>
+      <div><h4>Learn</h4><a href="why.html">Why BannerHub</a><a href="compare.html">Compare versions</a><a href="v6-privacy.html">Privacy hardening</a><a href="apis.html">APIs &amp; backends</a><a href="faq.html">FAQ</a><a href="credits.html">Credits</a></div>
+      <div><h4>Source &amp; community</h4><a href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub org</a><a href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Lite repo</a><a href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">BannerHub repo</a><a href="https://github.com/The412Banner/bannerhub-revanced" target="_blank" rel="noopener">v6 repo</a><a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> The412Banner · Community project.</span>
+      <span class="foot-disc">Not affiliated with XiaoJi, GameHub, Valve, Epic, GOG or Amazon. BannerHub modifies GameHub / GameHub&nbsp;Lite; all trademarks belong to their respective owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy hardening &amp; Lite builds — BannerHub v6</title>
+<meta name="description" content="Exactly what BannerHub v6's privacy hardening kills (8 telemetry channels, with commit links), what it honestly leaves in place and why, how to verify it yourself — plus what the v6 Lite builds remove and keep.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5b942'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="why.html">Why BannerHub</a>
+      <a href="compare.html">Compare</a>
+      <a href="lite.html">BannerHub Lite</a>
+      <a href="bannerhub.html">BannerHub</a>
+      <a href="v6.html">BannerHub v6</a>
+      <a href="v6-privacy.html">Privacy</a>
+      <a href="apis.html">APIs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="credits.html">Credits</a>
+      <a class="nav-cta" href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom:24px">
+    <p class="eyebrow" style="color:var(--accent)">BannerHub v6 · privacy</p>
+    <h1>Privacy hardening,<br>told honestly.</h1>
+    <p class="lead" style="margin:0 auto">BannerHub v6 strips upstream telemetry from GameHub 6.0.4 at the bytecode level — and discloses both halves: what it <strong>kills</strong> and what it deliberately <strong>leaves in place</strong>. Anyone with a DNS recorder can verify both, so we'd rather tell you up front.</p>
+    <div class="anchor-nav" style="justify-content:center;margin-top:22px">
+      <a href="#kill">What we kill</a>
+      <a href="#leave">What remains</a>
+      <a href="#scope">Out of scope</a>
+      <a href="#verify">Verify it yourself</a>
+      <a href="#lite">v6 Lite builds</a>
+    </div>
+  </section>
+
+  <section class="wrap section-tight">
+    <div class="note">
+      <p>This page covers only the <strong>BannerHub-side patches</strong> to the v6 build (<code>gamehub-604-build</code>). It does not cover GameHub's upstream behaviour, the Wine / Box64 stack, or the individual Windows games you run inside it. Source of truth: the repo's <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/PRIVACY.md" target="_blank" rel="noopener">PRIVACY.md</a>.</p>
+    </div>
+  </section>
+
+  <!-- KILL -->
+  <section class="section wrap" style="padding-top:14px" id="kill">
+    <div class="sec-head"><h2>✕ What we kill</h2><p class="muted">Each row was a live telemetry channel on vanilla GameHub 6.0.4 and is no longer reachable in BannerHub v6. The commit link is the actual code that did it.</p></div>
+    <div class="table-scroll fade-up">
+      <table>
+        <thead><tr><th>Channel</th><th>What it leaked</th><th>How it's killed</th><th>Commit</th></tr></thead>
+        <tbody>
+          <tr><td class="feat">Firebase Analytics</td><td>screen views, session starts, purchases, app opens → <code>app-measurement.com</code></td><td>Manifest kill-switch (<code>firebase_analytics_collection_deactivated=true</code> + Ad-ID/SSAID disables) — the SDK never initializes</td><td><a href="https://github.com/The412Banner/bannerhub-revanced/commit/178c5ec" target="_blank" rel="noopener"><code>178c5ec</code></a></td></tr>
+          <tr><td class="feat">Mob Push SDK</td><td>device identifiers, push tokens, lifecycle events → Mob</td><td>Bytecode removes 3 init call sites; manifest disables every <code>com.mob.*</code> / <code>cn.fly.*</code> component (auto-init ContentProvider can't fire)</td><td><a href="https://github.com/The412Banner/bannerhub-revanced/commit/282c9ea" target="_blank" rel="noopener"><code>282c9ea</code></a></td></tr>
+          <tr><td class="feat">Google Ad-ID / ADSERVICES perms</td><td>advertising-ID exposure to any Play Services caller</td><td>3 <code>&lt;uses-permission&gt;</code> declarations stripped</td><td><a href="https://github.com/The412Banner/bannerhub-revanced/commit/6817568" target="_blank" rel="noopener"><code>6817568</code></a></td></tr>
+          <tr><td class="feat">XiaoJi OTA update URL</td><td>firmware-update phone-home to <code>xiaoji.com/firmware/update/x1</code></td><td>URL register rewritten to <code>127.0.0.1</code>; per-arch OTA native libs stripped</td><td><a href="https://github.com/The412Banner/bannerhub-revanced/commit/6817568" target="_blank" rel="noopener"><code>6817568</code></a></td></tr>
+          <tr><td class="feat">Heartbeat / playtime tracker</td><td>per-game playtime sessions → XiaoJi (<code>heartbeat/game/*</code>)</td><td>Suspend lambda bodies replaced with <code>return Unit.INSTANCE</code>; playtime list returns empty</td><td><a href="https://github.com/The412Banner/bannerhub-revanced/commit/519ba65" target="_blank" rel="noopener"><code>519ba65</code></a></td></tr>
+          <tr><td class="feat">Google Play Services Measurement</td><td>persistent <code>app_instance_id</code>, <code>session_id</code>, lifecycle pauses → Google</td><td>Three GMS manifest components flipped to <code>android:enabled="false"</code></td><td><a href="https://github.com/The412Banner/bannerhub-revanced/commit/d4675ec" target="_blank" rel="noopener"><code>d4675ec</code></a></td></tr>
+          <tr><td class="feat"><code>…vgabc.com/events</code></td><td>general in-app analytics events → XiaoJi</td><td>Send-batch entry point early-returns fake success before any URL is allocated — HTTP client &amp; DNS resolver never run</td><td><a href="https://github.com/The412Banner/bannerhub-revanced/commit/b043f8c" target="_blank" rel="noopener"><code>b043f8c</code></a></td></tr>
+          <tr><td class="feat"><code>…/events/device-performance-config</code></td><td>device specs + perf telemetry → XiaoJi</td><td>Report entry point early-returns fake success; the URL-holding lambda is unreachable dead code</td><td><a href="https://github.com/The412Banner/bannerhub-revanced/commit/b043f8c" target="_blank" rel="noopener"><code>b043f8c</code></a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note" style="margin-top:20px">
+      <p><strong>Empirically verified:</strong> on a real device, a full 6.5-minute session (install → open → game launch → in-game → quit) recorded <strong>zero DNS queries</strong> for <code>statistic-gamehub-api.vgabc.com</code>, <code>dev2-gamehub-api.vgabc.com</code> or <code>landscape-api-beta.vgabc.com</code>, and zero logcat hits for any of them.</p>
+    </div>
+  </section>
+
+  <!-- LEAVE -->
+  <section class="section wrap" style="padding-top:0" id="leave">
+    <div class="sec-head"><h2>What we deliberately did <em>not</em> touch</h2><p class="muted">Point a DNS recorder at the APK and you'll still see these. None carry per-user telemetry, but the connections are real — so here's each one and why it's left.</p></div>
+    <div class="grid grid-2">
+      <div class="card fade-up"><h3 style="margin-top:0"><code>bigeyes.com</code> &amp; image CDNs</h3><p style="margin-bottom:0">Game cover art and capsule images — plain <code>GET</code>s with no identifiers or events. Proxying every cover render through the Worker would cost real money for a marginal gain (your IP still hits <em>some</em> CDN). Leaks only your IP, like loading any web image.</p></div>
+      <div class="card fade-up"><h3 style="margin-top:0"><code>firebase-settings.crashlytics.com</code></h3><p style="margin-bottom:0">A vestigial settings-config GET fired during SDK init. BannerHub's <em>Disable Firebase Crashlytics</em> patch removes the crash-reporting path, so <strong>nothing acts on the response</strong> and no crash bodies are ever uploaded.</p></div>
+      <div class="card fade-up"><h3 style="margin-top:0"><code>firebaselogging-pa.googleapis.com</code></h3><p style="margin-bottom:0">A separate Firebase logging-API probe. Many DNS recorders block it by default; if yours doesn't, add it to your blocklist. Out of scope for the current patch set (a candidate follow-up).</p></div>
+      <div class="card fade-up"><h3 style="margin-top:0">GOG &amp; Steam endpoints</h3><p style="margin-bottom:0"><code>galaxy-log.gog.com</code> fires if you use GOG as a source; <code>shared.akamai.steamstatic.com</code> serves Steam cover art. Both are vendor-side — outside BannerHub's patch surface, the same leaks you'd get on a PC.</p></div>
+      <div class="card fade-up" style="grid-column:1/-1"><h3 style="margin-top:0">The BannerHub Cloudflare Worker <span class="muted" style="font-weight:400">— <code>bannerhub-api.the412banner.workers.dev</code></span></h3>
+        <p>This serves the <code>/v6/</code> catalog API — game lists, cover-art URLs, component metadata and per-game install scripts. It's what replaces XiaoJi's catalog and lets BannerHub function at all.</p>
+        <p style="margin-bottom:0"><strong>The honest trust-shift:</strong> we didn't move XiaoJi-side trust to <em>nothing</em> — part of it moved to The412Banner + Cloudflare, who see the edge traffic regardless. But the Worker runs <strong>no analytics</strong>, logs <strong>no per-user request bodies</strong>, and knows nothing about you beyond the source IP Cloudflare sees on any HTTPS request. The original analytics-kill design would have routed telemetry through the Worker and discarded it server-side; the shipped design stubs it <em>client-side</em> instead, so telemetry never reaches the Worker at all. Source: <a href="https://github.com/The412Banner/bannerhub-api" target="_blank" rel="noopener">The412Banner/bannerhub-api</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCOPE -->
+  <section class="wrap section-tight" id="scope">
+    <div class="card fade-up">
+      <h3 style="margin-top:0">Intentionally out of scope</h3>
+      <p style="margin-top:0">These aren't part of the XiaoJi / Firebase / Mob / Google surface this work targeted, so they're untouched:</p>
+      <div class="grid grid-2">
+        <ul class="flist dot" style="margin:0">
+          <li>Steam Cloud / Web API / friends — Valve-side, when you launch a Steam game.</li>
+          <li>GOG online services &amp; achievement sync — GOG-side.</li>
+          <li>Epic Online Services — Epic-side (BannerHub's <code>EpicPortal</code> injection is a compatibility feature, not a privacy one).</li>
+        </ul>
+        <ul class="flist dot" style="margin:0">
+          <li>Anti-cheat phone-homes (BattlEye, EAC, …) — embedded in the games.</li>
+          <li>Your own Wine / Box64 prefix data, saves, screenshots — local to your device.</li>
+          <li>Anything inside the Windows games you run — sovereign processes, their telemetry is their own.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERIFY -->
+  <section class="section wrap" style="padding-top:14px" id="verify">
+    <div class="sec-head"><h2>Don't trust the table — verify it</h2><p class="muted">The patches are open source and the artifacts reproducible. Four ways to check, yourself:</p></div>
+    <div class="grid grid-2">
+      <div class="card feature fade-up"><h3 style="margin-top:0">1 · DNS recorder</h3><p style="margin-bottom:0">Run <a href="https://emanuele-f.github.io/PCAPdroid/" target="_blank" rel="noopener">PCAPdroid</a> (or AdGuard / NextDNS) on the device while you install, open, play and quit. The hostnames should match the "still visible" list above — with <strong>none</strong> of the killed channels.</p></div>
+      <div class="card feature fade-up"><h3 style="margin-top:0">2 · Logcat</h3><p style="margin-bottom:0"><code>adb logcat | grep -E "vgabc.com|statistic-gamehub|/events"</code> during a session should return <strong>zero</strong> hits.</p></div>
+      <div class="card feature fade-up"><h3 style="margin-top:0">3 · Decoded manifest</h3><p style="margin-bottom:0"><code>apktool d</code> the APK and confirm the Firebase deactivation flag, the disabled <code>com.mob.*</code> / GMS Measurement components, and the absent Ad-ID permissions.</p></div>
+      <div class="card feature fade-up"><h3 style="margin-top:0">4 · Smali check</h3><p style="margin-bottom:0">The two analytics entry points should begin with a <code>new-instance</code> → <code>&lt;init&gt;</code> → <code>return-object</code> sequence before any URL strings or HTTP calls.</p></div>
+    </div>
+    <p class="muted" style="margin-top:18px">Found a leak the doc doesn't mention? <a href="https://github.com/The412Banner/bannerhub-revanced/issues" target="_blank" rel="noopener">Open an issue</a> — disclosure gaps are treated as bugs.</p>
+  </section>
+
+  <hr class="wrap" style="max-width:var(--maxw)">
+
+  <!-- LITE BUILDS -->
+  <section class="section wrap" style="padding-top:30px" id="lite">
+    <div class="sec-head"><h2>🪶 What the v6 Lite builds are for</h2>
+      <p class="lead" style="margin:0">Separate from the standalone <a href="lite.html">BannerHub Lite</a> product, <strong>every v6 variant ships an optional "Lite" build</strong>: the exact same app with three chunks of dead weight removed to shrink the download — <strong>without losing Steam, Epic, AI Frame Generation or any feature you actually game with.</strong></p>
+    </div>
+
+    <div class="pill-row">
+      <span class="badge purple">~78 MB vs ~114 MB</span>
+      <span class="badge purple">≈36 MB / ~32% smaller</span>
+      <span class="badge">pkg <code>banner.hub.lite</code></span>
+      <span class="badge blue">installs side-by-side</span>
+    </div>
+
+    <div class="grid grid-3" style="margin-top:22px">
+      <div class="card fade-up"><span class="badge amber">~14 MB</span><h3>1 · Dead font + phone-login</h3><p style="margin-bottom:0">The app shipped the same 20 MB font file twice — the unused copy is deleted (looks 100% identical). Also removes an Aliyun carrier "one-tap phone login" library BannerHub never uses (it uses login-bypass). <b>You lose: nothing.</b></p></div>
+      <div class="card fade-up"><span class="badge amber">~21 MB</span><h3>2 · Cloud-gaming engine</h3><p style="margin-bottom:0">Strips the bundled Haima cloud-gaming streaming engine and its graphics — effectively unused for normal local play under the catalog redirect. <b>You lose:</b> the in-app cloud-streaming tiles only. <b>Local Steam / Epic / your own games are unaffected.</b></p></div>
+      <div class="card fade-up"><span class="badge amber">~5 MB</span><h3>3 · AVIF / HEIC decoders</h3><p style="margin-bottom:0">Removes extra libraries that decoded three modern image formats; Android's built-in decoder handles them instead. <b>You lose:</b> in theory a rare image format might not render — but in testing all cover art, avatars and banners displayed correctly. JPEG/PNG/WebP/GIF are 100% unaffected.</p></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:22px">
+      <div class="card fade-up">
+        <h3 style="margin-top:0">✅ Fully kept in Lite</h3>
+        <ul class="flist">
+          <li><b>Steam</b> — full client support &amp; launching</li>
+          <li><b>Epic / EOS</b> — full support</li>
+          <li><b>AI Frame Generation</b> — the in-game menu &amp; FPS boost</li>
+          <li>Controller vibration / rumble</li>
+          <li>All container / Wine / DXVK / driver tooling</li>
+          <li>Front-end launcher contract (Beacon / ES-DE / Daijishou)</li>
+          <li>Every game-launching and library feature of the full build</li>
+        </ul>
+        <p style="margin-bottom:0" class="muted">Steam and Epic are <em>never</em> removed from Lite, even though doing so would shrink it further — keeping them is the whole point. Lite is a smaller version of the <em>full</em> experience, not a cut-down one.</p>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">Beta testing status</h3>
+        <div class="table-scroll" style="box-shadow:none;border:none">
+          <table>
+            <tbody>
+              <tr><td>Install &amp; launch</td><td class="cmp y">✓ confirmed</td></tr>
+              <tr><td>Login bypass</td><td class="cmp y">✓ confirmed</td></tr>
+              <tr><td>Fonts / appearance</td><td class="cmp y">✓ identical</td></tr>
+              <tr><td>Cover art / avatars / banners</td><td class="cmp y">✓ rendering</td></tr>
+              <tr><td>Cloud-gaming tiles don't crash</td><td class="cmp p">🔄 please test</td></tr>
+              <tr><td>Steam &amp; Epic launch</td><td class="cmp p">🔄 please test</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-bottom:0" class="muted">A Lite APK shares its full counterpart's package &amp; cert — installing Lite <strong>replaces</strong> the matching full build (and vice-versa). They don't coexist; pick one per row. Full write-up: <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/bannerhub-v6-lite.md" target="_blank" rel="noopener">bannerhub-v6-lite.md</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="card center fade-up" style="background:linear-gradient(180deg,var(--accent-dim),var(--bg-2))">
+      <h2 style="margin-bottom:.3em">See it for yourself</h2>
+      <p class="lead" style="margin:0 auto 22px">Grab v6, point a DNS recorder at it, and check the table holds. Both halves are verifiable.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download BannerHub v6</a>
+        <a class="btn btn-ghost" href="v6.html">All v6 features</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+        <p class="foot-disc muted" style="margin-top:14px">Community builds of GameHub / GameHub&nbsp;Lite for running PC games on Android — privacy-hardened, account-free, with curated components.</p>
+      </div>
+      <div><h4>Projects</h4><a href="lite.html">BannerHub Lite</a><a href="bannerhub.html">BannerHub</a><a href="v6.html">BannerHub v6</a></div>
+      <div><h4>Learn</h4><a href="why.html">Why BannerHub</a><a href="compare.html">Compare versions</a><a href="v6-privacy.html">Privacy hardening</a><a href="apis.html">APIs &amp; backends</a><a href="faq.html">FAQ</a><a href="credits.html">Credits</a></div>
+      <div><h4>Source &amp; community</h4><a href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub org</a><a href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Lite repo</a><a href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">BannerHub repo</a><a href="https://github.com/The412Banner/bannerhub-revanced" target="_blank" rel="noopener">v6 repo</a><a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> The412Banner · Community project.</span>
+      <span class="foot-disc">Not affiliated with XiaoJi, GameHub, Valve, Epic, GOG or Amazon. BannerHub modifies GameHub / GameHub&nbsp;Lite; all trademarks belong to their respective owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

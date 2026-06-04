@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BannerHub v6 — features &amp; changelog</title>
+<meta name="description" content="BannerHub v6 — the next-gen build on XiaoJi GameHub 6.0.4. Account-free, privacy-hardened (8 telemetry channels killed), curated catalog API, per-game GPU spoof & renderer toggles, in-game performance overlay, and optional ~32%-smaller Lite builds. Full feature list and per-release changelog.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b48cff'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="why.html">Why BannerHub</a>
+      <a href="compare.html">Compare</a>
+      <a href="lite.html">BannerHub Lite</a>
+      <a href="bannerhub.html">BannerHub</a>
+      <a href="v6.html">BannerHub v6</a>
+      <a href="v6-privacy.html">Privacy</a>
+      <a href="apis.html">APIs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="credits.html">Credits</a>
+      <a class="nav-cta" href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom:26px">
+    <p class="eyebrow" style="color:var(--purple)">Based on XiaoJi GameHub 6.0.4 · new pipeline</p>
+    <h1>BannerHub v6</h1>
+    <p class="lead" style="margin:0 auto">The next-generation build on the newest GameHub base. Account-free and <strong>privacy-hardened</strong> at the bytecode level, with a curated catalog API, per-game GPU spoof &amp; renderer toggles, an in-game performance overlay, GOG integration, and optional Lite builds that are ~32% smaller.</p>
+    <div class="pill-row" style="justify-content:center;margin-top:20px">
+      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.8.0-604</span></span>
+      <span class="badge">pkg <code>banner.hub</code></span>
+      <span class="badge">9 variants + Lite</span>
+      <span class="badge amber">🔒 Privacy-hardened</span>
+    </div>
+    <div class="btn-row" style="justify-content:center;margin-top:22px">
+      <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download latest</a>
+      <a class="btn btn-ghost" href="v6-privacy.html">Privacy &amp; Lite builds →</a>
+    </div>
+  </section>
+
+  <section class="wrap section-tight">
+    <div class="note warn">
+      <p><strong>v6 is a separate project and still a work in progress.</strong> It uses a new component system and new Steam clients, re-releases often as XiaoJi ships new bases, and its game compatibility differs from BannerHub 3.7.x and Lite. It can't update over the other two — pick one product per device.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE SET -->
+  <section class="section wrap" style="padding-top:20px">
+    <h2 class="fade-up">What BannerHub v6 offers</h2>
+    <div class="grid grid-2" style="margin-top:20px">
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🔓 Access &amp; catalog</h3>
+        <ul class="flist">
+          <li><b>No login required</b> — straight to the home screen; import and play with no XiaoJi account.</li>
+          <li><b>Custom catalog API</b> — redirected to the BannerHub Cloudflare Worker for curated component delivery (DXVK, VKD3D-Proton, Box64, FEX, Mesa Turnip).</li>
+          <li><b>GOG integration</b> — sign in, browse your owned library, download &amp; install in-app.</li>
+          <li><b>Show PC Game Settings</b> row kept visible even for Steam-linked games; portrait PC-settings rendering.</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🛡️ Privacy hardening</h3>
+        <ul class="flist kill">
+          <li>Firebase Analytics &amp; Crashlytics neutralised</li>
+          <li>Google Play Services Measurement disabled</li>
+          <li>Mob Push SDK removed</li>
+          <li>Ad-ID / ADSERVICES permissions stripped</li>
+          <li>XiaoJi OTA + heartbeat trackers killed</li>
+          <li>Analytics <code>/events</code> endpoints stubbed client-side</li>
+        </ul>
+        <p style="margin-bottom:0"><a href="v6-privacy.html">Full kill/leave breakdown with commit links →</a></p>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🎛️ Per-game tooling</h3>
+        <ul class="flist">
+          <li><b>GPU Spoof</b> — report a chosen GPU identity to DXVK to clear "unsupported video card" refusals.</li>
+          <li><b>Legacy renderer (GLES2) toggle</b> — opt a game back to the proven 6.0.2 X-server pair if it regressed under 6.0.4.</li>
+          <li><b>PC-accurate vibration</b> — per-game mode &amp; intensity, preload-free (no <code>LD_PRELOAD</code>).</li>
+          <li><b>Strict per-game settings store</b> with explicit Save/Cancel — no app-wide leak.</li>
+          <li>All grouped under a tidy <b>Banner Tools</b> menu.</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">📲 Experience &amp; packaging</h3>
+        <ul class="flist">
+          <li><b>In-game performance overlay</b> (root) — draggable pill for CPU-governor &amp; Adreno-clock toggles, auto-reverts on exit.</li>
+          <li><b>BannerHub Explore homepage</b> with What's-New, version readout &amp; update banner.</li>
+          <li><b>Recording-compatible audio</b> toggle, muted UI sounds, root-free file-manager access.</li>
+          <li><b>Front-end launcher</b> support (Beacon / ES-DE / RetroHRAI / NeoStation / Daijishou).</li>
+          <li><b>9 side-by-side variants</b> + optional <b>Lite builds</b> (~32% smaller). Stable keystore → in-place updates.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card fade-up" style="margin-top:22px">
+      <h3 style="margin-top:0">🧬 How it's built</h3>
+      <p style="margin-top:0">v6 is produced with <b>ReVanced CLI 6.0.0</b> from an unmodified XiaoJi GameHub 6.0.4 base APK (versionCode 114) — only the bytecode and resources the patches need are touched. Full builds come from the <code>gamehub-604-build</code> branch, Lite from <code>feature/lite-variant-tier1</code>. Every patch (login bypass, catalog redirect, privacy hardening, vibration, GPU spoof, renderer toggle, and more) is documented in the repo's <a href="https://github.com/The412Banner/bannerhub-revanced#patches-applied" target="_blank" rel="noopener">Patches&nbsp;Applied</a> section.</p>
+    </div>
+  </section>
+
+  <!-- INHERITED -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="card fade-up" style="border-left:3px solid var(--purple)">
+      <span class="badge purple">🧬 Inherited from the base</span>
+      <h2 style="margin-top:.5em">Built on stock XiaoJi GameHub 6.0.4</h2>
+      <p>Unlike the 5.x builds, BannerHub v6 starts from the <b>unmodified</b> XiaoJi GameHub 6.0.4 APK and applies its own ReVanced patches on top. That means the entire gaming <em>engine</em> is GameHub's — BannerHub v6 changes the app's behaviour (login, telemetry, catalog, per-game tooling), not the runtime that runs your games.</p>
+      <div class="grid grid-2" style="margin-top:6px">
+        <div>
+          <h3 style="margin-top:.4em">Comes from GameHub 6.0.4</h3>
+          <ul class="flist dot">
+            <li><b>Wine + Box64 / FEX runtime</b> — the core that runs Windows games on Android.</li>
+            <li><b>Container / Wine-prefix management</b> and the in-game sidebar (Controls / Performance / Settings).</li>
+            <li><b>Native Steam client</b> integration and the new 6.0 component system.</li>
+            <li><b>AI Frame Generation engine</b> — <code>libGameScopeVK</code> optical-flow interpolation (the GameHub team's work).</li>
+            <li>Built-in FPS limiter, performance HUD, dual-battery mode and per-game PC settings.</li>
+            <li>The DXVK / VKD3D / Box64 / GPU-driver component pipeline.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-top:.4em">What BannerHub v6 adds / changes</h3>
+          <ul class="flist">
+            <li><b>Login bypass</b> + a custom curated <b>catalog API</b>.</li>
+            <li><b>Privacy hardening</b> — 8 telemetry channels killed (<a href="v6-privacy.html">details</a>).</li>
+            <li>Per-game <b>GPU spoof</b>, <b>legacy renderer toggle</b> &amp; <b>PC-accurate vibration</b>.</li>
+            <li>GOG integration, in-game perf overlay, recording-compatible audio, Explore homepage.</li>
+            <li>9 side-by-side variants + optional Lite builds.</li>
+          </ul>
+          <p class="muted" style="margin-top:10px;font-size:.86rem">Only the bytecode &amp; resources the patches need are touched; the base APK is otherwise unmodified (versionCode 114).</p>
+        </div>
+      </div>
+      <p class="muted" style="margin:16px 0 0;font-size:.86rem">Credit &amp; lineage: GameHub and the AI Frame-Generation engine © XiaoJi / the GameHub team; built with ReVanced CLI. BannerHub v6 is a downstream community patch.</p>
+    </div>
+  </section>
+
+  <!-- CHANGELOG -->
+  <section class="section wrap" style="padding-top:10px">
+    <div class="sec-head"><h2>Release history</h2><p class="muted">Stable releases since the first v6 stable, newest first. Each links to its full GitHub release notes.</p></div>
+
+    <div class="timeline">
+
+      <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v1.8.0-604</span><span class="date">2026-05-31</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.8.0-604" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>In-game performance overlay (root)</b> — a draggable edge pill slides out CPU-governor → performance and Adreno min-clock boost toggles, with an opacity slider; off by default and auto-reverts on exit.</li>
+          <li><b>Banner Tools moved into the Explorer screen</b> as strictly per-game options.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.7.0-604</span><span class="date">2026-05-30</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.7.0-604" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>Redesigned Explore homepage</b> — wordmark hero, a What's-New article that auto-syncs from release notes, live JSON override, still fully offline-capable.</li>
+          <li><b>In-app update check</b> — installed-vs-latest version readout with an amber update banner and settings cog.</li>
+          <li>GOG "Set .exe" / "Copy to Downloads" doubled-directory path fix.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.6.0-604</span><span class="date">2026-05-29</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.6.0-604" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>GOG integration</b> — log in, browse your owned library, download &amp; install GOG games in-app; they launch like any other PC game.</li>
+          <li><b>BannerHub Explore screen</b> (offline, GOG card) replaces the stock discovery feed.</li>
+          <li><b>Recording-compatible audio toggle</b> — routes PulseAudio through the mixer so screen recorders capture in-game sound.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.5.1-604</span><span class="date">2026-05-21</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.5.1-604" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li>Imported / Epic / GOG games now launch from <b>Beacon, ES-DE, RetroHRAI, NeoStation &amp; Daijishou</b>.</li>
+          <li>New <b>Banner Tools</b> menu groups PC Vibration, GPU Spoof, Renderer &amp; Show Game ID.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.5.0-604</span><span class="date">2026-05-21</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.5.0-604" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>External launcher integration</b> (Beacon device-confirmed; ES-DE/Daijishou shared impl).</li>
+          <li><b>Show Game ID</b> menu row + a <b>View All Games</b> dialog (copy any game's id); proper per-row menu icons; portrait layout for the PC Vibration dialog. <span class="muted">(PR #6, TideGear)</span></li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.4.0-604</span><span class="date">2026-05-19</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.4.0-604" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>Strict per-game settings store</b> (explicit Save/Cancel, crosses the <code>:wine</code> process boundary).</li>
+          <li><b>GPU Spoof</b> and <b>Legacy renderer (GLES2) toggle</b>, both per-game.</li>
+          <li>Sustained-rumble launch fix and an <b>offline component picker</b> for every per-game picker.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.3.0-604</span><span class="date">2026-05-17</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.3.0-604" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>Preload-free vibration</b> — defeats SDL2's auto-stop via an on-disk <code>winebus.so</code> patch, fixing the x86_64 / Box64 launch crash.</li>
+          <li><b>Lite builds for every variant</b> — ~34.5 MB smaller (strips a dead font, Aliyun phone-login, the Haima cloud-gaming stack and AVIF/HEIC codecs).</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.2.0-604</span><span class="date">2026-05-15</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.2.0-604" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>Privacy-hardening stack</b> — 7 functional patches killing Firebase Analytics, Mob Push, Ad-ID, OTA, heartbeat, GMS Measurement and the analytics <code>/events</code> endpoints, plus a public <a href="v6-privacy.html">PRIVACY.md</a> disclosure.</li>
+          <li><b>Show PC Game Settings row</b> for every game type; first <b>v6 Lite</b> Beta build.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.1.0-604</span><span class="date">2026-05-13</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.1.0-604" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>First v6 stable</b> — PC-accurate XInput rumble, a per-game PC Vibration Settings menu row, the BannerHub v6 visual rebrand, and a stable signing keystore enabling in-place updates.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="muted" style="margin-top:6px">Earlier bring-up builds (1.0.0-604 and the 6.0.0–6.0.2 pipelines) and all assets are on the <a href="https://github.com/The412Banner/bannerhub-revanced/releases" target="_blank" rel="noopener">GitHub releases page</a>.</p>
+  </section>
+
+  <!-- DOCS & REPORTS -->
+  <section class="section wrap" style="padding-top:6px">
+    <div class="card fade-up">
+      <span class="badge purple">📑 Documentation &amp; reports</span>
+      <h2 style="margin-top:.5em">Reports &amp; the GameHub 6.x master maps</h2>
+      <p>The v6 work is the most heavily documented — including the GameHub <b>6.0.0</b> master map and the <b>6.0.4</b> letter map that track the base codebase:</p>
+      <div class="grid grid-2">
+        <ul class="flist dot">
+          <li><a href="https://github.com/The412Banner/BannerHub/blob/main/gamehub_reports/GAMEHUB_600_MASTER_MAP.md" target="_blank" rel="noopener">GameHub 6.0.0 Master Map</a> — the base-codebase map the v6 work started from.</li>
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/gamehub_reports/GH604_LETTER_MAP.md" target="_blank" rel="noopener">GameHub 6.0.4 Letter Map</a> — the obfuscation-letter map for the current base.</li>
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/PROGRESS_LOG.md" target="_blank" rel="noopener">Progress log</a> — running dev journal.</li>
+        </ul>
+        <ul class="flist dot">
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/PRIVACY.md" target="_blank" rel="noopener">PRIVACY.md</a> &amp; <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/bannerhub-v6-lite.md" target="_blank" rel="noopener">v6 Lite write-up</a>.</li>
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/beacon-setup.md" target="_blank" rel="noopener">Front-end launcher setup</a> &amp; <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/docs/LEGACY_RENDERER_TOGGLE_PLAN.md" target="_blank" rel="noopener">Legacy renderer plan</a>.</li>
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/gamehub_reports/GOG_LIBRARY_TAB_DESIGN.md" target="_blank" rel="noopener">GOG library tab design</a> &amp; <a href="https://github.com/The412Banner/bannerhub-revanced/releases" target="_blank" rel="noopener">all releases</a>.</li>
+        </ul>
+      </div>
+      <p class="muted" style="margin-bottom:0;font-size:.88rem">Full lineage &amp; contributor credits are on the <a href="credits.html">Credits page</a>.</p>
+    </div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="card center fade-up" style="background:linear-gradient(180deg,#2c2350,var(--bg-2))">
+      <h2 style="margin-bottom:.3em">Get BannerHub v6</h2>
+      <p class="lead" style="margin:0 auto 22px">9 variants ship side-by-side, each with an optional Lite build. Curious what "privacy-hardened" really means? Read the honest breakdown.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.8.0-604</span></a>
+        <a class="btn btn-ghost" href="v6-privacy.html">Privacy &amp; Lite builds</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+        <p class="foot-disc muted" style="margin-top:14px">Community builds of GameHub / GameHub&nbsp;Lite for running PC games on Android — privacy-hardened, account-free, with curated components.</p>
+      </div>
+      <div><h4>Projects</h4><a href="lite.html">BannerHub Lite</a><a href="bannerhub.html">BannerHub</a><a href="v6.html">BannerHub v6</a></div>
+      <div><h4>Learn</h4><a href="why.html">Why BannerHub</a><a href="compare.html">Compare versions</a><a href="v6-privacy.html">Privacy hardening</a><a href="apis.html">APIs &amp; backends</a><a href="faq.html">FAQ</a><a href="credits.html">Credits</a></div>
+      <div><h4>Source &amp; community</h4><a href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub org</a><a href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Lite repo</a><a href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">BannerHub repo</a><a href="https://github.com/The412Banner/bannerhub-revanced" target="_blank" rel="noopener">v6 repo</a><a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> The412Banner · Community project.</span>
+      <span class="foot-disc">Not affiliated with XiaoJi, GameHub, Valve, Epic, GOG or Amazon. BannerHub modifies GameHub / GameHub&nbsp;Lite; all trademarks belong to their respective owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

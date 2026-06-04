@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BannerHub — Play PC games on Android, account-free & privacy-hardened</title>
+<meta name="description" content="BannerHub is a family of community builds of GameHub and GameHub Lite for running PC games on Android — no login wall, privacy-hardened, with curated Wine/DXVK components and GOG/Epic/Amazon stores. Three versions: Lite, BannerHub, and v6.">
+<link rel="preconnect" href="https://github.com">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b8cff'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="why.html">Why BannerHub</a>
+      <a href="compare.html">Compare</a>
+      <a href="lite.html">BannerHub Lite</a>
+      <a href="bannerhub.html">BannerHub</a>
+      <a href="v6.html">BannerHub v6</a>
+      <a href="v6-privacy.html">Privacy</a>
+      <a href="apis.html">APIs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="credits.html">Credits</a>
+      <a class="nav-cta" href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <p class="eyebrow">Community builds of GameHub &amp; GameHub Lite</p>
+    <h1>Play PC games on Android —<br>account-free &amp; privacy-hardened.</h1>
+    <p class="lead">BannerHub is a family of patched GameHub builds that strip the login wall and upstream telemetry, add curated Wine / DXVK / driver components, and bolt on GOG, Epic &amp; Amazon stores — so you can import and play your own PC games with no XiaoJi account.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#versions">Choose your version</a>
+      <a class="btn btn-ghost" href="why.html">Why not stock GameHub? →</a>
+    </div>
+    <p class="hero-note">Three separate projects · 9 device-spoof variants each · open source on GitHub</p>
+  </section>
+
+  <!-- QUICK STATS -->
+  <section class="wrap section-tight">
+    <div class="grid grid-3">
+      <div class="card center fade-up"><h3 style="margin:0;font-size:2rem">3</h3><p style="margin:.3em 0 0">distinct BannerHub products, each on its own base &amp; pipeline</p></div>
+      <div class="card center fade-up"><h3 style="margin:0;font-size:2rem">8</h3><p style="margin:.3em 0 0">upstream telemetry channels stripped at the bytecode level in v6</p></div>
+      <div class="card center fade-up"><h3 style="margin:0;font-size:2rem">4</h3><p style="margin:.3em 0 0">game stores integrated — GOG · Epic · Amazon · Steam</p></div>
+    </div>
+  </section>
+
+  <!-- VERSIONS -->
+  <section class="section wrap" id="versions">
+    <div class="sec-head center">
+      <h2>Three versions, three jobs</h2>
+      <p class="lead" style="margin:0 auto">They look similar but they're <strong>separate projects</strong> on different GameHub bases — pick the one that matches your device and goals. They install side-by-side and <em>cannot</em> update over each other.</p>
+    </div>
+
+    <div class="grid grid-3">
+
+      <!-- LITE -->
+      <div class="card product-card fade-up" style="--accentline:linear-gradient(90deg,#46d6a0,#5b8cff)">
+        <div class="pc-top">
+          <span class="badge">GameHub Lite 5.1.4</span>
+          <span class="badge ver" data-auto="ver:lite">v1.0.2</span>
+        </div>
+        <h3>BannerHub Lite</h3>
+        <p class="pc-base">Based on GameHub Lite by Producdevity · pkg <code>banner.hub.lite</code></p>
+        <p class="pc-desc">The lightweight build. Adds the GOG / Epic / Amazon store tabs, a Winlator HUD, Wine Task Manager, Component Manager and per-game performance toggles on top of the slim GameHub Lite base — a great fit for lower-end or storage-constrained devices.</p>
+        <div class="chips" style="margin-bottom:16px">
+          <span class="chip">GOG · Epic · Amazon</span><span class="chip">Wine Task Manager</span><span class="chip">Winlator HUD</span><span class="chip">AI Frame Gen</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-sm" href="lite.html">Features &amp; changelog</a>
+          <a class="btn btn-ghost btn-sm" href="https://github.com/The412Banner/Bannerhub-Lite/releases/latest" target="_blank" rel="noopener">Download</a>
+        </div>
+      </div>
+
+      <!-- BANNERHUB -->
+      <div class="card product-card fade-up" style="--accentline:linear-gradient(90deg,#5b8cff,#7aa2ff)">
+        <div class="pc-top">
+          <span class="badge">GameHub 5.3.5 ReVanced</span>
+          <span class="badge ver" data-auto="ver:full">v3.7.5</span>
+        </div>
+        <h3>BannerHub</h3>
+        <p class="pc-base">Based on GameHub 5.3.5 ReVanced by PlayDay · pkg <code>banner.hub</code></p>
+        <p class="pc-desc">The full-featured flagship. Everything Lite has plus deep store integrations (DLC, cloud saves, EOS online auth), in-app downloads manager, AI Frame Generation, PC-accurate rumble, front-end export and a 4,800-config community library.</p>
+        <div class="chips" style="margin-bottom:16px">
+          <span class="chip">Cloud saves &amp; DLC</span><span class="chip">EOS online auth</span><span class="chip">Download manager</span><span class="chip">Community configs</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-sm" href="bannerhub.html">Features &amp; changelog</a>
+          <a class="btn btn-ghost btn-sm" href="https://github.com/The412Banner/BannerHub/releases/latest" target="_blank" rel="noopener">Download</a>
+        </div>
+      </div>
+
+      <!-- V6 -->
+      <div class="card product-card fade-up" style="--accentline:linear-gradient(90deg,#b48cff,#f5b942)">
+        <div class="pc-top">
+          <span class="badge">XiaoJi GameHub 6.0.4</span>
+          <span class="badge ver" data-auto="ver:v6">v1.8.0-604</span>
+        </div>
+        <h3>BannerHub v6 <span class="badge purple" style="vertical-align:middle">newest base</span></h3>
+        <p class="pc-base">Based on XiaoJi GameHub 6.0.4 · new pipeline · pkg <code>banner.hub</code></p>
+        <p class="pc-desc">The next-generation build on the newest GameHub. Account-free, <strong>privacy-hardened</strong> (8 telemetry channels killed), with a curated catalog API, per-game GPU spoof &amp; renderer toggles, an in-game perf overlay and optional ~32%-smaller Lite builds.</p>
+        <div class="chips" style="margin-bottom:16px">
+          <span class="chip">Privacy-hardened</span><span class="chip">GPU spoof</span><span class="chip">In-game overlay</span><span class="chip">Lite builds</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-sm" href="v6.html">Features &amp; changelog</a>
+          <a class="btn btn-ghost btn-sm" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="center muted" style="margin-top:26px">Not sure which to install? <a href="compare.html">See the full side-by-side comparison →</a></p>
+  </section>
+
+  <!-- WHY TEASER -->
+  <section class="section wrap">
+    <div class="sec-head center">
+      <h2>Why use BannerHub instead of stock GameHub?</h2>
+      <p class="lead" style="margin:0 auto">Same engine you already trust to run Wine — minus the gatekeeping and the tracking, plus the tools power users actually want.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="tile card feature fade-up"><div class="ic">🔓</div><div><h3>No login wall</h3><p>Launch straight to the home screen and import / play your own games — no XiaoJi account, no phone-number login, no region gate.</p></div></div>
+      <div class="tile card feature fade-up"><div class="ic">🛡️</div><div><h3>Privacy-hardened</h3><p>v6 strips Firebase, Mob Push, GMS Measurement, Ad-ID, OTA &amp; analytics at the bytecode level — and <a href="v6-privacy.html">honestly documents</a> what's left.</p></div></div>
+      <div class="tile card feature fade-up"><div class="ic">🎮</div><div><h3>More stores</h3><p>First-class GOG, Epic and Amazon libraries with downloads, DLC and cloud saves — alongside the existing Steam path.</p></div></div>
+      <div class="tile card feature fade-up"><div class="ic">⚙️</div><div><h3>Curated components</h3><p>Hand-picked DXVK, VKD3D-Proton, Box64, FEX and Mesa Turnip builds delivered through the BannerHub component channel.</p></div></div>
+      <div class="tile card feature fade-up"><div class="ic">🚀</div><div><h3>Power-user tooling</h3><p>AI Frame Generation, PC-accurate controller rumble, Winlator HUD, Wine Task Manager, GPU spoofing and an in-game performance overlay.</p></div></div>
+      <div class="tile card feature fade-up"><div class="ic">🧩</div><div><h3>Front-end ready</h3><p>Launch your games from Beacon, ES-DE, Daijishou, NeoStation and more — BannerHub ships a documented intent contract for every variant.</p></div></div>
+    </div>
+    <div class="center" style="margin-top:30px"><a class="btn btn-primary" href="why.html">Read the full case →</a></div>
+  </section>
+
+  <!-- HONEST NOTE -->
+  <section class="wrap section-tight">
+    <div class="note">
+      <p><strong>Straight with you:</strong> BannerHub patches the GameHub <em>app</em> — it doesn't change the Windows games you run, the Wine / Box64 stack, or Valve / Epic / GOG's own services. Compatibility differs between the three versions, and v6 is still a work in progress. Everything here is open source so you can verify the claims yourself.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+        <p class="foot-disc muted" style="margin-top:14px">Community builds of GameHub / GameHub&nbsp;Lite for running PC games on Android — privacy-hardened, account-free, with curated components.</p>
+      </div>
+      <div>
+        <h4>Projects</h4>
+        <a href="lite.html">BannerHub Lite</a>
+        <a href="bannerhub.html">BannerHub</a>
+        <a href="v6.html">BannerHub v6</a>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <a href="why.html">Why BannerHub</a>
+        <a href="compare.html">Compare versions</a>
+        <a href="v6-privacy.html">Privacy hardening</a>
+        <a href="apis.html">APIs &amp; backends</a>
+        <a href="faq.html">FAQ</a>
+        <a href="credits.html">Credits</a>
+      </div>
+      <div>
+        <h4>Source &amp; community</h4>
+        <a href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub org</a>
+        <a href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Lite repo</a>
+        <a href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">BannerHub repo</a>
+        <a href="https://github.com/The412Banner/bannerhub-revanced" target="_blank" rel="noopener">v6 repo</a>
+        <a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> The412Banner · Community project.</span>
+      <span class="foot-disc">Not affiliated with XiaoJi, GameHub, Valve, Epic, GOG or Amazon. BannerHub modifies GameHub / GameHub&nbsp;Lite; all trademarks belong to their respective owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

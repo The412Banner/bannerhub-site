@@ -1,0 +1,20 @@
+{
+  "lite": {
+    "repo": "The412Banner/Bannerhub-Lite",
+    "version": "v1.0.2",
+    "date": "2026-05-12",
+    "url": "https://github.com/The412Banner/Bannerhub-Lite/releases/tag/v1.0.2"
+  },
+  "full": {
+    "repo": "The412Banner/BannerHub",
+    "version": "v3.7.5",
+    "date": "2026-05-21",
+    "url": "https://github.com/The412Banner/BannerHub/releases/tag/v3.7.5"
+  },
+  "v6": {
+    "repo": "The412Banner/bannerhub-revanced",
+    "version": "v1.8.0-604",
+    "date": "2026-05-31",
+    "url": "https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.8.0-604"
+  }
+}

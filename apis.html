@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The APIs / backends explained — BannerHub</title>
+<meta name="description" content="What the three GameHub backends are and what each offers — the original GameHub API (XiaoJi), the EmuReady / GameHub Lite API (Producdevity), and the self-hosted privacy-respecting BannerHub API — plus which build uses which.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b8cff'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="why.html">Why BannerHub</a>
+      <a href="compare.html">Compare</a>
+      <a href="lite.html">BannerHub Lite</a>
+      <a href="bannerhub.html">BannerHub</a>
+      <a href="v6.html">BannerHub v6</a>
+      <a href="v6-privacy.html">Privacy</a>
+      <a href="apis.html">APIs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="credits.html">Credits</a>
+      <a class="nav-cta" href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom:24px">
+    <p class="eyebrow">Under the hood</p>
+    <h1>The APIs / backends,<br>explained</h1>
+    <p class="lead" style="margin:0 auto">Every GameHub-based app talks to a <strong>backend API</strong> for its catalog, its components (DXVK / VKD3D / Box64 / drivers), firmware, container presets and — for online features — Steam library &amp; search. The big difference between these projects is <em>which</em> backend they trust. Here are the three in play.</p>
+  </section>
+
+  <section class="wrap section-tight">
+    <div class="note">
+      <p><strong>What an "API" does here:</strong> it's the server that tells the app <em>what components exist, where to download them, which firmware/container to use, and</em> (for the original) handles your account &amp; Steam library. Swap the backend and you change who you trust and what works offline — without changing the game-running engine itself.</p>
+    </div>
+  </section>
+
+  <!-- THREE APIS -->
+  <section class="section wrap" style="padding-top:14px">
+    <div class="grid grid-3">
+
+      <!-- GAMEHUB API -->
+      <div class="card product-card fade-up" style="--accentline:linear-gradient(90deg,#ff6b6b,#f5b942)">
+        <div class="pc-top"><span class="badge">Original</span><span class="badge" style="color:var(--red);border-color:var(--red-dim);background:var(--red-dim)">closed-source</span></div>
+        <h3>GameHub API</h3>
+        <p class="pc-base">by XiaoJi · the official backend</p>
+        <p class="pc-desc">The original Chinese servers the stock app was built around. Serves the catalog, components, firmware and the Steam library — but also handles account login and carries the upstream telemetry.</p>
+        <ul class="flist" style="margin-bottom:14px">
+          <li>Catalog, components, firmware, Steam proxy</li>
+          <li>Requires a XiaoJi account / login</li>
+        </ul>
+        <ul class="flist kill" style="margin-bottom:0">
+          <li>Region-gated &amp; telemetry-carrying</li>
+          <li>Closed source; can change or go down</li>
+        </ul>
+      </div>
+
+      <!-- EMUREADY API -->
+      <div class="card product-card fade-up" style="--accentline:linear-gradient(90deg,#46d6a0,#5b8cff)">
+        <div class="pc-top"><span class="badge">Static JSON</span><span class="badge blue">open</span></div>
+        <h3>EmuReady API</h3>
+        <p class="pc-base">by Producdevity · GameHub&nbsp;Lite API</p>
+        <p class="pc-desc">A fully <b>static</b> JSON API (a TypeScript build that generates ~16 endpoint files) that drops the account requirement and the Chinese servers for a clean component catalog. This is what <a href="lite.html">GameHub&nbsp;Lite</a> — the base BannerHub Lite is built on — talks to.</p>
+        <ul class="flist" style="margin-bottom:0">
+          <li>Component manifests: Box64/FEX, drivers, DXVK, VKD3D, games, libraries, Steam</li>
+          <li>Simulator endpoints: component/container lists, default component, firmware (imagefs), <code>executeScript</code> generic &amp; Qualcomm presets</li>
+          <li>No login, no telemetry — static files</li>
+        </ul>
+      </div>
+
+      <!-- BANNERHUB API -->
+      <div class="card product-card fade-up" style="--accentline:linear-gradient(90deg,#5b8cff,#b48cff)">
+        <div class="pc-top"><span class="badge">Static + Worker</span><span class="badge amber">privacy-first</span></div>
+        <h3>BannerHub API</h3>
+        <p class="pc-base">by The412Banner · self-hosted</p>
+        <p class="pc-desc">A static JSON API <b>plus a Cloudflare Worker</b> that fully replaces GameHub's Chinese servers. Every component downloads <b>directly from GitHub Releases</b> — no login, no Chinese servers, no third-party image CDNs. Powers all three BannerHub builds.</p>
+        <ul class="flist" style="margin-bottom:0">
+          <li>Components straight from GitHub Releases — always up regardless of GameHub server status</li>
+          <li>Worker proxies the few dynamic calls (Steam library, search) with real token injection + MD5 signature regeneration</li>
+          <li>A companion worker auto-refreshes the GameHub token every 4 h (via Mail.tm OTP) so you never log in</li>
+          <li>One backend serves both 5.3.5 (BannerHub + Lite) and 6.0.x (via a <code>/v6/</code> path prefix)</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHICH BUILD USES WHICH -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="sec-head"><h2 class="fade-up">Which build uses which backend</h2></div>
+    <div class="table-scroll fade-up">
+      <table>
+        <thead><tr><th>Build</th><th>Default backend</th><th>Switchable?</th></tr></thead>
+        <tbody>
+          <tr><td class="feat">Stock GameHub</td><td>GameHub API <span class="muted">(XiaoJi)</span></td><td class="cmp n">—</td></tr>
+          <tr><td class="feat">GameHub Lite <span class="muted">(base of BannerHub Lite)</span></td><td>EmuReady API <span class="muted">(Producdevity)</span></td><td class="cmp n">—</td></tr>
+          <tr><td class="feat"><a href="lite.html">BannerHub Lite</a></td><td>BannerHub API <span class="muted">(since v1.0.1)</span></td><td class="cmp n">—</td></tr>
+          <tr><td class="feat"><a href="bannerhub.html">BannerHub</a></td><td>BannerHub API</td><td class="cmp y">✓ <small>3-way selector: GameHub / EmuReady / BannerHub</small></td></tr>
+          <tr><td class="feat"><a href="v6.html">BannerHub v6</a></td><td>BannerHub API <span class="muted">(<code>/v6/</code> prefix)</span></td><td class="cmp n">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:10px;font-size:.86rem">BannerHub (full) is the most flexible — it ships a <b>Compatibility API Source</b> selector so you can point it at the original GameHub API, the EmuReady API, or the BannerHub API.</p>
+  </section>
+
+  <!-- ARCHITECTURE / HONEST -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="grid grid-2">
+      <div class="card fade-up">
+        <h3 style="margin-top:0">How the BannerHub API is wired</h3>
+        <pre style="background:var(--bg-3);border:1px solid var(--border);border-radius:10px;padding:14px;overflow:auto;font-size:.82rem;color:#cdd6e8;line-height:1.5"><code>App
+ └─ Cloudflare Worker
+     ├─ GitHub Pages — static routes
+     │   (components, Wine config, firmware…)
+     └─ GameHub backend — proxied dynamic calls
+         (Steam library, search) with real
+         token + regenerated MD5 signature</code></pre>
+        <p style="margin-bottom:0">Static endpoints are also browsable on GitHub Pages; the app points at the Worker. Source: <a href="https://github.com/The412Banner/bannerhub-api" target="_blank" rel="noopener">bannerhub-api</a> + <a href="https://github.com/The412Banner/bannerhub-api-token-refresh" target="_blank" rel="noopener">token-refresh worker</a>.</p>
+      </div>
+      <div class="card fade-up" style="border-color:var(--accent-dim)">
+        <h3 style="margin-top:0">The honest part</h3>
+        <p>The BannerHub API removes the Chinese servers for <em>components</em> and the login wall — but the handful of <b>dynamic</b> features (Steam library, search) are still proxied through to GameHub's own backend by the Worker, just with the token handled for you.</p>
+        <p style="margin-bottom:0">So you trust <b>The412Banner + Cloudflare</b> for the catalog instead of XiaoJi directly. That trade-off (and what still reaches the network) is laid out plainly on the <a href="v6-privacy.html">privacy page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="card center fade-up" style="background:linear-gradient(180deg,var(--primary-dim),var(--bg-2))">
+      <h2 style="margin-bottom:.3em">Want the source?</h2>
+      <p class="lead" style="margin:0 auto 22px">Both community APIs are open. Read exactly what they serve.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-api" target="_blank" rel="noopener">BannerHub API</a>
+        <a class="btn btn-ghost" href="https://github.com/Producdevity/gamehub-lite-api" target="_blank" rel="noopener">EmuReady / Lite API</a>
+        <a class="btn btn-ghost" href="v6-privacy.html">Privacy breakdown</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+        <p class="foot-disc muted" style="margin-top:14px">Community builds of GameHub / GameHub&nbsp;Lite for running PC games on Android — privacy-hardened, account-free, with curated components.</p>
+      </div>
+      <div><h4>Projects</h4><a href="lite.html">BannerHub Lite</a><a href="bannerhub.html">BannerHub</a><a href="v6.html">BannerHub v6</a></div>
+      <div><h4>Learn</h4><a href="why.html">Why BannerHub</a><a href="compare.html">Compare versions</a><a href="v6-privacy.html">Privacy hardening</a><a href="apis.html">APIs &amp; backends</a><a href="faq.html">FAQ</a><a href="credits.html">Credits</a></div>
+      <div><h4>Source &amp; community</h4><a href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub org</a><a href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Lite repo</a><a href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">BannerHub repo</a><a href="https://github.com/The412Banner/bannerhub-revanced" target="_blank" rel="noopener">v6 repo</a><a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> The412Banner · Community project.</span>
+      <span class="foot-disc">Not affiliated with XiaoJi, GameHub, Valve, Epic, GOG or Amazon. BannerHub modifies GameHub / GameHub&nbsp;Lite; all trademarks belong to their respective owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

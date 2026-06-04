@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why BannerHub, not stock GameHub? — BannerHub</title>
+<meta name="description" content="The honest case for BannerHub over vanilla GameHub: no login wall, bytecode-level telemetry removal, curated components, GOG/Epic/Amazon stores, power-user tooling — and what BannerHub deliberately does NOT change.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b8cff'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="why.html">Why BannerHub</a>
+      <a href="compare.html">Compare</a>
+      <a href="lite.html">BannerHub Lite</a>
+      <a href="bannerhub.html">BannerHub</a>
+      <a href="v6.html">BannerHub v6</a>
+      <a href="v6-privacy.html">Privacy</a>
+      <a href="apis.html">APIs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="credits.html">Credits</a>
+      <a class="nav-cta" href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom:30px">
+    <p class="eyebrow">The case for BannerHub</p>
+    <h1>Why BannerHub, not<br>stock GameHub?</h1>
+    <p class="lead" style="margin:0 auto">GameHub is a genuinely impressive Wine-on-Android launcher. BannerHub keeps that engine intact and removes the parts that get in your way — the account wall and the tracking — then adds the tooling power users keep asking for. Here's the honest version, including what we <em>don't</em> change.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="anchor-nav" style="justify-content:center">
+      <a href="#login">No login wall</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#stores">More stores</a>
+      <a href="#components">Curated components</a>
+      <a href="#tooling">Power tooling</a>
+      <a href="#frontends">Front-ends</a>
+      <a href="#open">Open &amp; verifiable</a>
+      <a href="#honest">What we don't change</a>
+    </div>
+  </section>
+
+  <section class="section wrap">
+
+    <div class="card fade-up" id="login" style="margin-bottom:22px">
+      <span class="badge blue">Access</span>
+      <h2 style="margin-top:.5em">1 · No login wall, no account, no region gate</h2>
+      <p>Vanilla GameHub puts a XiaoJi account / phone-number login between you and your own games, and gates content by region. BannerHub's <strong>login-bypass</strong> patch drops you straight onto the home screen — import a PC game, point it at an <code>.exe</code>, and play. No sign-up, no credentials, no "service not available in your country."</p>
+      <ul class="flist">
+        <li>Launch directly to the library — import and run games with no account.</li>
+        <li>The catalog is redirected to BannerHub's own backend, so listings and per-game settings work without XiaoJi's gatekeeping.</li>
+        <li>v6 even keeps the per-game <em>PC Game Settings</em> row visible for Steam-linked games, which upstream hides.</li>
+      </ul>
+    </div>
+
+    <div class="card fade-up" id="privacy" style="margin-bottom:22px">
+      <span class="badge amber">Privacy</span>
+      <h2 style="margin-top:.5em">2 · Telemetry stripped at the bytecode level</h2>
+      <p>This is the headline reason. On vanilla GameHub 6.0.4, a normal session phones home to Firebase, Google Play Services Measurement, Mob Push, XiaoJi's analytics endpoints and more. <strong>BannerHub v6 kills eight of those channels in the bytecode and manifest</strong> — the SDKs never initialize, the URLs are never allocated, the components are disabled.</p>
+      <div class="grid grid-2" style="margin-top:18px">
+        <ul class="flist kill">
+          <li>Firebase Analytics → <code>app-measurement.com</code></li>
+          <li>Google Play Services Measurement</li>
+          <li>Mob Push SDK (device IDs, push tokens)</li>
+          <li>Google Ad-ID / ADSERVICES permissions</li>
+        </ul>
+        <ul class="flist kill">
+          <li>XiaoJi OTA firmware phone-home</li>
+          <li>Heartbeat / playtime tracker</li>
+          <li><code>statistic-gamehub-api…/events</code></li>
+          <li><code>…/events/device-performance-config</code></li>
+        </ul>
+      </div>
+      <div class="note" style="margin-bottom:0">
+        <p>Verified on a real device: a full 6.5-minute session produced <strong>zero DNS queries</strong> to the killed analytics hosts. And we don't pretend the device goes silent — the privacy page lists every connection that <em>does</em> remain and why. <a href="v6-privacy.html">Read the full privacy breakdown →</a></p>
+      </div>
+    </div>
+
+    <div class="card fade-up" id="stores" style="margin-bottom:22px">
+      <span class="badge blue">Library</span>
+      <h2 style="margin-top:.5em">3 · GOG, Epic &amp; Amazon — not just Steam</h2>
+      <p>Stock GameHub is built around its own catalog and Steam. BannerHub adds <strong>first-class store tabs</strong> so the PC libraries you already own come along for the ride — log in, browse, download and launch like any other game.</p>
+      <ul class="flist">
+        <li><b>GOG</b> — OAuth login, owned-library browse, multi-CDN downloads, DLC, cloud saves (in BannerHub), in-app install &amp; launch.</li>
+        <li><b>Epic</b> — catalog sync, chunked manifest downloads, free-games claim flow, and <b>Epic Online Services</b> auth so online multiplayer titles actually connect.</li>
+        <li><b>Amazon</b> — PKCE OAuth, entitlement sync, SDK DLL deployment, parallel downloads with SHA-256 verification.</li>
+        <li><b>Steam</b> — the existing GameHub Steam path keeps working alongside all of the above.</li>
+      </ul>
+      <p class="muted" style="margin-bottom:0">Store coverage varies by version — see the <a href="compare.html">comparison table</a> for exactly what each build ships.</p>
+    </div>
+
+    <div class="card fade-up" id="components" style="margin-bottom:22px">
+      <span class="badge blue">Components</span>
+      <h2 style="margin-top:.5em">4 · Curated, current Wine components</h2>
+      <p>Getting a game running on Android is often a matter of pairing it with the right translation layer. BannerHub ships an in-app <strong>Component Manager</strong> and routes the catalog through its own component channel, so you get hand-picked, frequently-updated builds instead of whatever the upstream defaults happen to be.</p>
+      <div class="chips">
+        <span class="chip">DXVK</span><span class="chip">VKD3D-Proton</span><span class="chip">Box64</span><span class="chip">FEXCore</span><span class="chip">Mesa Turnip drivers</span><span class="chip">Wine / Proton containers</span>
+      </div>
+      <p style="margin-top:14px;margin-bottom:0">Add, inject, back up and remove components in-app, pulling from multiple repositories including The412Banner Nightlies. In v6, every per-game picker even works offline, listing what you've already downloaded in catalog order.</p>
+    </div>
+
+    <div class="card fade-up" id="tooling" style="margin-bottom:22px">
+      <span class="badge blue">Tooling</span>
+      <h2 style="margin-top:.5em">5 · The power-user tools you actually wanted</h2>
+      <div class="grid grid-2">
+        <ul class="flist">
+          <li><b>AI Frame Generation</b> — in-game menu driving GameHub's optical-flow frame interpolation (≈1.8–1.9× FPS on supported Adreno hardware).</li>
+          <li><b>PC-accurate rumble</b> — real XInput dual-motor vibration routed into Android, configurable per game.</li>
+          <li><b>Winlator HUD</b> — live FPS / CPU / GPU / RAM / temp / battery overlay with multiple detail modes.</li>
+        </ul>
+        <ul class="flist">
+          <li><b>Wine Task Manager</b> — kill processes, browse the prefix, launch executables from inside the sidebar.</li>
+          <li><b>GPU spoofing</b> (v6) — report a chosen GPU identity to DXVK to clear "unsupported video card" refusals.</li>
+          <li><b>In-game perf overlay</b> (v6, root) — toggle CPU governor &amp; Adreno clocks without leaving the game.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card fade-up" id="frontends" style="margin-bottom:22px">
+      <span class="badge blue">Integration</span>
+      <h2 style="margin-top:.5em">6 · Launch from your favourite front-end</h2>
+      <p>BannerHub games aren't trapped inside the app. Both the export tooling and the intent contract let external launchers start your titles directly, so BannerHub slots into a wider Android gaming setup.</p>
+      <div class="chips">
+        <span class="chip">Beacon</span><span class="chip">ES-DE</span><span class="chip">Daijishou</span><span class="chip">NeoStation</span><span class="chip">RetroHRAI</span>
+      </div>
+    </div>
+
+    <div class="card fade-up" id="open" style="margin-bottom:22px">
+      <span class="badge blue">Trust</span>
+      <h2 style="margin-top:.5em">7 · Open, reproducible, side-by-side</h2>
+      <ul class="flist">
+        <li>Every patch is <b>open source</b> on GitHub and built in CI — you can read exactly what changed and rebuild it.</li>
+        <li>Each version ships <b>9 variants</b> with different package names, so multiple builds (and the original GameHub) coexist on one device.</li>
+        <li>Privacy claims come with <b>verification steps</b> (DNS recorder, logcat, manifest &amp; smali checks) — don't trust the table, check it.</li>
+      </ul>
+    </div>
+
+    <div class="card fade-up" id="honest" style="border-color:var(--accent-dim)">
+      <span class="badge amber">Honest limits</span>
+      <h2 style="margin-top:.5em">What BannerHub does <em>not</em> change</h2>
+      <p>A fair comparison cuts both ways. BannerHub patches the GameHub <strong>app</strong>; it isn't magic, and it doesn't touch:</p>
+      <ul class="flist kill">
+        <li>The Wine / Box64 / Proton stack or the Windows games themselves — their behaviour and their own telemetry are out of scope.</li>
+        <li>Valve, Epic, GOG and anti-cheat services — those phone home when you launch their games, exactly as they would on a PC.</li>
+        <li>Image CDNs and a couple of vestigial SDK endpoints that carry no per-user data (all <a href="v6-privacy.html">disclosed</a>).</li>
+        <li>Compatibility guarantees — each version targets a different GameHub base, and v6 in particular is still a work in progress that re-releases often.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="card center fade-up" style="background:linear-gradient(180deg,var(--primary-dim),var(--bg-2))">
+      <h2 style="margin-bottom:.3em">Ready to pick a build?</h2>
+      <p class="lead" style="margin:0 auto 22px">Compare all three side by side, or jump straight to the version that fits your device.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="compare.html">Compare versions</a>
+        <a class="btn btn-ghost" href="lite.html">Lite</a>
+        <a class="btn btn-ghost" href="bannerhub.html">BannerHub</a>
+        <a class="btn btn-ghost" href="v6.html">v6</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+        <p class="foot-disc muted" style="margin-top:14px">Community builds of GameHub / GameHub&nbsp;Lite for running PC games on Android — privacy-hardened, account-free, with curated components.</p>
+      </div>
+      <div><h4>Projects</h4><a href="lite.html">BannerHub Lite</a><a href="bannerhub.html">BannerHub</a><a href="v6.html">BannerHub v6</a></div>
+      <div><h4>Learn</h4><a href="why.html">Why BannerHub</a><a href="compare.html">Compare versions</a><a href="v6-privacy.html">Privacy hardening</a><a href="apis.html">APIs &amp; backends</a><a href="faq.html">FAQ</a><a href="credits.html">Credits</a></div>
+      <div><h4>Source &amp; community</h4><a href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub org</a><a href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Lite repo</a><a href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">BannerHub repo</a><a href="https://github.com/The412Banner/bannerhub-revanced" target="_blank" rel="noopener">v6 repo</a><a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> The412Banner · Community project.</span>
+      <span class="foot-disc">Not affiliated with XiaoJi, GameHub, Valve, Epic, GOG or Amazon. BannerHub modifies GameHub / GameHub&nbsp;Lite; all trademarks belong to their respective owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BannerHub Lite — features &amp; changelog</title>
+<meta name="description" content="BannerHub Lite — the lightweight build based on GameHub Lite 5.1.4. GOG/Epic/Amazon stores, Wine Task Manager, Winlator HUD, Component Manager and per-game performance tooling. Full feature list and per-release changelog.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2346d6a0'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="why.html">Why BannerHub</a>
+      <a href="compare.html">Compare</a>
+      <a href="lite.html">BannerHub Lite</a>
+      <a href="bannerhub.html">BannerHub</a>
+      <a href="v6.html">BannerHub v6</a>
+      <a href="v6-privacy.html">Privacy</a>
+      <a href="apis.html">APIs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="credits.html">Credits</a>
+      <a class="nav-cta" href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom:26px">
+    <p class="eyebrow" style="color:var(--green)">Based on GameHub Lite 5.1.4 · by Producdevity</p>
+    <h1>BannerHub Lite</h1>
+    <p class="lead" style="margin:0 auto">The lightweight member of the family. BannerHub Lite layers the GOG / Epic / Amazon store tabs, a Winlator HUD, Wine Task Manager, Component Manager and per-game performance tooling onto the slim GameHub&nbsp;Lite base — ideal for lower-end or storage-constrained devices.</p>
+    <div class="pill-row" style="justify-content:center;margin-top:20px">
+      <span class="badge ver">Latest: <span data-auto="ver:lite">v1.0.2</span></span>
+      <span class="badge">pkg <code>banner.hub.lite</code></span>
+      <span class="badge">9 variants</span>
+      <span class="badge blue">Config cross-compatible with BannerHub</span>
+    </div>
+    <div class="btn-row" style="justify-content:center;margin-top:22px">
+      <a class="btn btn-primary" href="https://github.com/The412Banner/Bannerhub-Lite/releases/latest" target="_blank" rel="noopener">Download latest</a>
+      <a class="btn btn-ghost" href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Source on GitHub</a>
+    </div>
+  </section>
+
+  <!-- FEATURE SET -->
+  <section class="section wrap" style="padding-top:30px">
+    <h2 class="fade-up">What's in BannerHub Lite</h2>
+    <div class="grid grid-2" style="margin-top:20px">
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🎮 Game store tabs</h3>
+        <ul class="flist">
+          <li><b>GOG</b> — OAuth login, library cache + search, 3 view modes (List / Grid / Poster), SteamGridDB cover art, A-Z sort, Gen 2/1/installer download pipeline, exe picker, Set&nbsp;.exe, Copy to Downloads, uninstall.</li>
+          <li><b>Amazon</b> — PKCE OAuth, GetEntitlements library sync, manifest.proto (LZMA/XZ), 6-parallel downloads with SHA-256, FuelPump launch + SDK DLLs.</li>
+          <li><b>Epic</b> — OAuth login, catalog sync, chunked manifest downloads (Fastly/Akamai), 6-parallel with speed display, exe picker &amp; launch.</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🧰 In-game sidebar</h3>
+        <ul class="flist">
+          <li><b>Wine Task Manager</b> — Applications / Processes / Launch tabs, Kill buttons, Container Info (CPU, RAM, VRAM, device, Android), 3s auto-refresh, and a WINEPREFIX file browser that launches <code>.exe/.msi/.bat/.cmd</code> directly.</li>
+          <li><b>Winlator HUD overlay</b> — API draw / GPU% / CPU% / RAM% / battery / temp / FPS + rolling graph, with a 0–100% opacity slider.</li>
+          <li><b>Performance toggles</b> (root) — Sustained Performance Mode + CPU performance governor, and Max Adreno Clocks (KGSL min-freq = max).</li>
+          <li><b>AI Frame Generation</b> (v1.0.2+) — frame-gen menu with 6 presets, multiplier &amp; flow-scale, ported from BannerHub 3.7.x.</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">⚙️ Components</h3>
+        <ul class="flist">
+          <li><b>Component Manager</b> — color-coded cards; Add / Inject / Backup / Remove / Remove All; supports <code>.wcp</code> (zstd &amp; XZ tar) and <code>.zip</code> GPU drivers.</li>
+          <li><b>Online downloader</b> — multiple repositories incl. The412Banner Nightlies, with three-level Repo → Type → Asset navigation.</li>
+          <li><b>BCI launcher button</b> — toolbar shortcut to BannersComponentInjector.</li>
+        </ul>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">🔧 Settings &amp; system</h3>
+        <ul class="flist">
+          <li><b>VRAM Limit Unlock</b> — adds 6 / 8 / 12 / 16 GB to the per-game VRAM picker.</li>
+          <li><b>Per-game CPU core affinity</b> — Efficiency / Performance / Prime core selection.</li>
+          <li><b>GPU System Driver default</b>, <b>Offline Steam skip</b>, <b>Launch Fix</b> (hardware-whitelist bypass), explicit <b>Grant Root Access</b>.</li>
+          <li><b>Export / Import config</b> — per-game settings as JSON, fully cross-compatible with BannerHub. Japanese localization (3,534 strings).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INHERITED -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="card fade-up" style="border-left:3px solid var(--green)">
+      <span class="badge" style="color:var(--green);border-color:var(--green-dim);background:var(--green-dim)">🧬 Inherited from the base</span>
+      <h2 style="margin-top:.5em">Built on GameHub&nbsp;Lite 5.1.4</h2>
+      <p>BannerHub Lite starts from <a href="https://github.com/Producdevity/gamehub-lite" target="_blank" rel="noopener">GameHub&nbsp;Lite</a> by <b>Producdevity</b> — itself a community patch of XiaoJi's GameHub 5.1.0. A lot of what makes Lite "lite" comes from that base; BannerHub adds the store tabs and tooling on top. Here's the honest split:</p>
+      <div class="grid grid-2" style="margin-top:6px">
+        <div>
+          <h3 style="margin-top:.4em">Comes from GameHub&nbsp;Lite</h3>
+          <ul class="flist">
+            <li><b>Telemetry &amp; tracking removed</b> at the base — Umeng analytics, Firebase, JPush, Tencent login, crash reporting.</li>
+            <li><b>No account requirement</b> — login removed.</li>
+            <li><b>Bloat removed</b> — Cloud Streaming, Xbox Cloud Gaming and social features stripped (≈118 MB → 52 MB at the base).</li>
+            <li><b>Trimmed permissions</b> &amp; <b>offline support</b>.</li>
+            <li><b>RTS Touch Controls</b> — tap-to-click, box-select, long-press right-click, two-finger pan, pinch-zoom (added in GameHub&nbsp;Lite 5.1.4 by <a href="https://github.com/Nightwalker743" target="_blank" rel="noopener">@Nightwalker743</a>).</li>
+            <li><code>gamehub.lite</code> package rename + a custom community news page.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-top:.4em">…and from GameHub itself</h3>
+          <ul class="flist dot">
+            <li>The Wine + Box64 / FEX runtime that actually runs Windows games.</li>
+            <li>Container / Wine-prefix management and the in-game sidebar.</li>
+            <li>Native Steam client integration.</li>
+            <li>The base DXVK / VKD3D / Box64 component pipeline.</li>
+          </ul>
+          <p class="muted" style="margin-top:14px;font-size:.86rem">BannerHub Lite then <b>adds</b>: the GOG / Epic / Amazon store tabs, Component Manager + online downloader, Wine Task Manager, Winlator HUD, AI Frame Generation, VRAM unlock, CPU affinity, config export/import and more (see above).</p>
+        </div>
+      </div>
+      <p class="muted" style="margin:16px 0 0;font-size:.86rem">Credit &amp; lineage: GameHub Lite © Producdevity &amp; contributors; GameHub © XiaoJi. BannerHub Lite is a downstream community build.</p>
+    </div>
+  </section>
+
+  <!-- CHANGELOG -->
+  <section class="section wrap" style="padding-top:10px">
+    <div class="sec-head"><h2>Release history</h2><p class="muted">Every notable feature and fix, newest first. Each version links to its full GitHub release notes.</p></div>
+
+    <div class="note" style="margin-bottom:28px">
+      <p><strong>Known issue (current):</strong> Proton 11 can hang on "Initializing…" when launching Steam games with a Steam client. Workaround: use a different Wine/Proton component for Steam-client launches until resolved.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v1.0.2</span><span class="date">2026-05-12</span><a class="src" href="https://github.com/The412Banner/Bannerhub-Lite/releases/tag/v1.0.2" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>AI Frame Generation menu</b> — new "Frame Generation" row in the in-game Controls sidebar with 6 presets (ECO/FLOW/BAL/BOOST/CLEAR/MAX), 2×/3×/4× multiplier, flow-scale slider and an FPS limiter; settings persist in <code>bh_framegen</code>.</li>
+          <li><b>Per-package ICD JSON</b> so frame-gen works on every variant package without per-variant patching.</li>
+          <li><b>Server-side firmware fix</b> — the Add-Game path now serves imagefs 1.3.7 (fixes the "Failed to initialize the simulator" error from v1.0.1, including for older installs — no client change needed).</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.0.1</span><span class="date">2026-05-12</span><a class="src" href="https://github.com/The412Banner/Bannerhub-Lite/releases/tag/v1.0.1" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>First stable on the BannerHub API</b> — all 9 variants moved to <code>bannerhub-api.the412banner.workers.dev</code>; components, firmware and catalog served from BannerHub.</li>
+          <li><b>Firmware bumped to 1.3.7</b>, aligning 5.x (Lite) and 6.0 (BannerHub 3.7.x) clients on the same firmware.</li>
+          <li><b>HID-mode launch dialog fix</b> — the broken touch/HID picker backported into 5.1.4 is rewritten to a no-op so games launch directly.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v1.0.0</span><span class="date">2026-04-14</span><a class="src" href="https://github.com/The412Banner/Bannerhub-Lite/releases/tag/v1.0.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>Export / Import game config</b> — per-game Wine settings as JSON, cross-compatible with BannerHub.</li>
+          <li><b>Extra-Detailed HUD</b> — per-core CPU% &amp; MHz, GPU%, temps, RAM, SWAP, FPS graph, battery wattage; draggable.</li>
+          <li>D-pad focus highlights, GOG Akamai CDN fix, download-manager sync (6-parallel + speed), and a dedicated <code>banner.hub.lite</code> package.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v0.4.0</span><span class="date">2026-03-30</span><a class="src" href="https://github.com/The412Banner/Bannerhub-Lite/releases/tag/v0.4.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>Wine Task Manager sidebar tab</b> — Container Info, Applications &amp; Processes (with Kill), and a Launch tab that browses the prefix and runs executables, with 3s auto-refresh.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v0.3.7</span><span class="date">2026-03-30</span><a class="src" href="https://github.com/The412Banner/Bannerhub-Lite/releases/tag/v0.3.7" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>Amazon Games tab</b> and <b>Epic Games Store tab</b> added (OAuth, library sync, parallel downloads, launch).</li>
+          <li><b>Winlator HUD overlay</b> with toggle + opacity slider; <b>Japanese translations</b> (3,534 strings); GOG download UX improvements (live speed, cancel cleanup).</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v0.3.4 – v0.3.6</span><span class="date">2026-03-25 – 03-26</span><a class="src" href="https://github.com/The412Banner/Bannerhub-Lite/releases" target="_blank" rel="noopener">all releases ↗</a></div>
+        <ul>
+          <li>GOG library build-out — 3 view modes, SteamGridDB cover art, A-Z sort, detail dialog improvements.</li>
+          <li>Performance sidebar toggles (root): Sustained Performance + Max Adreno Clocks.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
+        <div class="rel-head"><span class="ver">v0.3.3</span><span class="date">2026-03-24</span><a class="src" href="https://github.com/The412Banner/Bannerhub-Lite/releases/tag/v0.3.3" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li>First tracked stable release — the initial BannerHub feature set on the GameHub Lite base (GOG tab, Component Manager, VRAM unlock, CPU affinity and core tooling).</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="muted" style="margin-top:6px">Full history, pre-releases and assets on the <a href="https://github.com/The412Banner/Bannerhub-Lite/releases" target="_blank" rel="noopener">GitHub releases page</a>.</p>
+  </section>
+
+  <!-- DOCS & REPORTS -->
+  <section class="section wrap" style="padding-top:6px">
+    <div class="card fade-up">
+      <span class="badge" style="color:var(--green);border-color:var(--green-dim);background:var(--green-dim)">📑 Documentation &amp; reports</span>
+      <h2 style="margin-top:.5em">Dig into the source docs</h2>
+      <p>The Lite repo keeps its own working logs alongside the code:</p>
+      <ul class="flist dot">
+        <li><a href="https://github.com/The412Banner/Bannerhub-Lite/blob/main/PROGRESS_LOG.md" target="_blank" rel="noopener">Progress log</a> — the running development journal.</li>
+        <li><a href="https://github.com/The412Banner/Bannerhub-Lite/blob/main/COMPONENT_MANAGER_BUILD_LOG.md" target="_blank" rel="noopener">Component Manager build log</a> — how the in-app component system was built.</li>
+        <li><a href="https://github.com/The412Banner/Bannerhub-Lite/blob/main/README.md" target="_blank" rel="noopener">README</a> &amp; <a href="https://github.com/The412Banner/Bannerhub-Lite/releases" target="_blank" rel="noopener">all releases</a>.</li>
+      </ul>
+      <p class="muted" style="margin-bottom:0;font-size:.88rem">Full lineage &amp; contributor credits are on the <a href="credits.html">Credits page</a>.</p>
+    </div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="card center fade-up" style="background:linear-gradient(180deg,var(--green-dim),var(--bg-2))">
+      <h2 style="margin-bottom:.3em">Get BannerHub Lite</h2>
+      <p class="lead" style="margin:0 auto 22px">Uninstall your existing GameHub Lite first (different signing cert), then install the variant matching your package.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="https://github.com/The412Banner/Bannerhub-Lite/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:lite">v1.0.2</span></a>
+        <a class="btn btn-ghost" href="compare.html">Compare with BannerHub &amp; v6</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+        <p class="foot-disc muted" style="margin-top:14px">Community builds of GameHub / GameHub&nbsp;Lite for running PC games on Android — privacy-hardened, account-free, with curated components.</p>
+      </div>
+      <div><h4>Projects</h4><a href="lite.html">BannerHub Lite</a><a href="bannerhub.html">BannerHub</a><a href="v6.html">BannerHub v6</a></div>
+      <div><h4>Learn</h4><a href="why.html">Why BannerHub</a><a href="compare.html">Compare versions</a><a href="v6-privacy.html">Privacy hardening</a><a href="apis.html">APIs &amp; backends</a><a href="faq.html">FAQ</a><a href="credits.html">Credits</a></div>
+      <div><h4>Source &amp; community</h4><a href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub org</a><a href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Lite repo</a><a href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">BannerHub repo</a><a href="https://github.com/The412Banner/bannerhub-revanced" target="_blank" rel="noopener">v6 repo</a><a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> The412Banner · Community project.</span>
+      <span class="foot-disc">Not affiliated with XiaoJi, GameHub, Valve, Epic, GOG or Amazon. BannerHub modifies GameHub / GameHub&nbsp;Lite; all trademarks belong to their respective owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+# Drop this into EACH of the three project repos as
+#   .github/workflows/notify-site.yml
+# (Bannerhub-Lite, BannerHub, bannerhub-revanced)
+#
+# It pings the bannerhub-site repo the moment a STABLE release is published,
+# so the website updates within ~30s instead of waiting for the daily cron.
+#
+# REQUIRED SECRET in each project repo: SITE_DISPATCH_TOKEN
+#   A token allowed to send a repository_dispatch to The412Banner/bannerhub-site.
+#   Either a classic PAT with `repo` scope, or a fine-grained PAT scoped to
+#   bannerhub-site with "Contents: read & write" (dispatch needs write metadata).
+
+name: Notify BannerHub site on release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    # only fire for real stable releases, not pre-releases or drafts
+    if: ${{ !github.event.release.prerelease && !github.event.release.draft }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch update to bannerhub-site
+        env:
+          GH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+        run: |
+          gh api repos/The412Banner/bannerhub-site/dispatches \
+            -f event_type=project-release \
+            -f "client_payload[repo]=${{ github.repository }}" \
+            -f "client_payload[tag]=${{ github.event.release.tag_name }}"

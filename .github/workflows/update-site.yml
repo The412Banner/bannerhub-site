@@ -1,0 +1,74 @@
+name: Update site from releases
+
+# Keeps the live version badges / download labels in sync with each project's
+# latest STABLE GitHub release, and opens an issue when curated content (the
+# changelog highlights + comparison matrix) needs a human update.
+
+on:
+  schedule:
+    - cron: "17 6 * * *"        # daily backstop
+  workflow_dispatch:            # run manually
+  repository_dispatch:          # fired by the 3 project repos on `release: published`
+    types: [project-release]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: update-site
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Sync version data from releases
+        id: gen
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/update_releases.py
+
+      - name: Commit & push any changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name  "The412Banner"
+            git config user.email "205237651+The412Banner@users.noreply.github.com"
+            git add -A
+            git commit -m "chore: auto-sync latest release versions"
+            git push
+          else
+            echo "No changes to commit."
+          fi
+
+      - name: Open staleness issue (curated content behind)
+        if: ${{ steps.gen.outputs.stale != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STALE: ${{ steps.gen.outputs.stale }}
+        run: |
+          TITLE="Curated content update needed: $STALE"
+          if gh issue list --state open --search "in:title \"$TITLE\"" | grep -q .; then
+            echo "Issue already open; skipping."
+            exit 0
+          fi
+          printf '%s\n' \
+            "A new **stable** release was detected: \`$STALE\`." \
+            "" \
+            "**Auto-done:** version badges, hero \"Latest\" pills and \"Download\" labels were updated, and \`data/releases.json\` was refreshed." \
+            "" \
+            "**Please do (human):**" \
+            "1. Add the new release's curated changelog highlight on the relevant product page (lite/bannerhub/v6)." \
+            "2. Review \`compare.html\` — does it add a feature needing a new row or a changed checkmark?" \
+            "3. Update \`credits.html\` if a new PR/contributor was integrated." \
+            "4. Bump the project's value in \`data/curated.json\` to clear this alert." \
+            > /tmp/issue_body.md
+          gh issue create --title "$TITLE" --body-file /tmp/issue_body.md --label content \
+            || gh issue create --title "$TITLE" --body-file /tmp/issue_body.md \
+            || echo "Issue create skipped (perms/label?)."
