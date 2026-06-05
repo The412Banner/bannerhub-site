@@ -22,6 +22,33 @@
     if (href === here || (here === "" && href === "index.html")) a.classList.add("active");
   });
 
+  // Resources dropdown (click for touch; CSS handles hover on desktop)
+  document.querySelectorAll(".nav-dd-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var dd = btn.parentNode;
+      var open = dd.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".nav-dd.open").forEach(function (dd) {
+      if (!dd.contains(e.target)) {
+        dd.classList.remove("open");
+        var t = dd.querySelector(".nav-dd-toggle");
+        if (t) t.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+  // highlight the Resources toggle when one of its links is the current page
+  document.querySelectorAll(".nav-dd").forEach(function (dd) {
+    if (dd.querySelector(".nav-dd-menu a.active")) {
+      var t = dd.querySelector(".nav-dd-toggle");
+      if (t) t.classList.add("active");
+    }
+  });
+
   // FAQ accordion: close siblings on open (one-open-at-a-time)
   var faqGroups = document.querySelectorAll(".faq");
   faqGroups.forEach(function (group) {
