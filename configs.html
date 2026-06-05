@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community Game Configs — BannerHub</title>
+<meta name="description" content="BannerHub's community library of per-game Wine/DXVK/Box64 configs — 7,000+ device-specific configs across 1,700+ games. Find one that works on a device like yours, import it in-app, and play.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2346d6a0'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="why.html">Why BannerHub</a>
+      <a href="compare.html">Compare</a>
+      <a href="lite.html">BannerHub Lite</a>
+      <a href="bannerhub.html">BannerHub</a>
+      <a href="v6.html">BannerHub v6</a>
+      <a href="v6-privacy.html">Privacy</a>
+      <a href="apis.html">APIs</a>
+      <a href="configs.html">Configs</a>
+      <a href="faq.html">FAQ</a>
+      <a href="credits.html">Credits</a>
+      <a class="nav-cta" href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom:24px">
+    <p class="eyebrow" style="color:var(--green)">Community resource</p>
+    <h1>Community Game Configs</h1>
+    <p class="lead" style="margin:0 auto">Getting a PC game running on Android is mostly about pairing it with the right Wine / DXVK / Box64 settings. BannerHub's community library lets you skip the trial-and-error: find a config someone already got working on a device like yours, import it, and play.</p>
+    <div class="pill-row" style="justify-content:center;margin-top:20px">
+      <span class="badge ver">7,000+ configs</span>
+      <span class="badge">1,700+ games</span>
+      <span class="badge blue">no account needed</span>
+      <span class="badge">BannerHub ⇄ Lite compatible</span>
+    </div>
+    <div class="btn-row" style="justify-content:center;margin-top:22px">
+      <a class="btn btn-primary" href="https://the412banner.github.io/bannerhub-game-configs/" target="_blank" rel="noopener">Browse the library</a>
+      <a class="btn btn-ghost" href="https://github.com/The412Banner/bannerhub-game-configs" target="_blank" rel="noopener">Configs repo</a>
+    </div>
+    <p class="hero-note">Counts grow with every contribution.</p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section wrap" style="padding-top:24px">
+    <div class="sec-head center"><h2>How it works</h2><p class="lead" style="margin:0 auto">Three steps from "won't launch" to "running."</p></div>
+    <div class="grid grid-3">
+      <div class="card feature fade-up"><div class="ic" style="width:44px;height:44px;border-radius:11px;display:grid;place-items:center;font-size:1.3rem;background:var(--green-dim);border:1px solid var(--border-2)">1</div><h3>Find your game</h3><p style="margin-bottom:0">Search the library by game, then <b>filter by manufacturer / device</b> to narrow to configs tested on hardware like yours. Compare entries side by side.</p></div>
+      <div class="card feature fade-up"><div class="ic" style="width:44px;height:44px;border-radius:11px;display:grid;place-items:center;font-size:1.3rem;background:var(--green-dim);border:1px solid var(--border-2)">2</div><h3>Import it</h3><p style="margin-bottom:0">In BannerHub, open the game's settings and use <b>Import Config</b>. The matching browser is built into the app too — no manual file copying, and missing components can be installed in one tap.</p></div>
+      <div class="card feature fade-up"><div class="ic" style="width:44px;height:44px;border-radius:11px;display:grid;place-items:center;font-size:1.3rem;background:var(--green-dim);border:1px solid var(--border-2)">3</div><h3>Play — then give back</h3><p style="margin-bottom:0">Tweaked it until it ran great? Use <b>Export Config</b> to upload yours, so the next person with your phone gets a head start.</p></div>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN A CONFIG -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="grid grid-2">
+      <div class="card fade-up">
+        <h3 style="margin-top:0">What's inside a config</h3>
+        <p style="margin-top:0">Each config captures a game's working <b>settings</b> plus the <b>components</b> it needs — so importing it sets up the DX wrapper, Box64 build and the rest in one go.</p>
+        <pre style="background:var(--bg-3);border:1px solid var(--border);border-radius:10px;padding:14px;overflow:auto;font-size:.8rem;color:#cdd6e8;line-height:1.5"><code>{
+  "settings": {
+    "winlator_env_dxwrapper": "DXVK-2.3.1",
+    "winlator_env_box64version": "Box64-0.3.2",
+    ...
+  },
+  "components": [
+    { "name": "DXVK-2.3.1",  "type": "DXVK"  },
+    { "name": "Box64-0.3.2", "type": "Box64" }
+  ]
+}</code></pre>
+        <p style="margin-bottom:0" class="muted">Files are organised as <code>configs/&lt;Game&gt;/&lt;Manufacturer&gt;-&lt;Model&gt;-&lt;Timestamp&gt;.json</code>, so each game collects one entry per device that's been tested.</p>
+      </div>
+      <div class="card fade-up">
+        <h3 style="margin-top:0">Good to know</h3>
+        <ul class="flist">
+          <li><b>No account, no cost</b> — browse and download freely.</li>
+          <li><b>Cross-compatible</b> — configs work across <a href="bannerhub.html">BannerHub</a> and <a href="lite.html">BannerHub&nbsp;Lite</a> (they share the same per-game settings keys).</li>
+          <li><b>One-tap components</b> — importing a config can fetch any components it requires from the <a href="apis.html">BannerHub API</a>.</li>
+          <li><b>App-managed</b> — configs are uploaded/downloaded through BannerHub's <b>Export / Import Config</b>; you don't submit files by hand.</li>
+        </ul>
+        <div class="note" style="margin-bottom:0">
+          <p><strong>On BannerHub v6:</strong> v6 uses its own strict per-game settings store and doesn't ship the in-app community-config browser — this library is primarily for <b>BannerHub</b> and <b>BannerHub&nbsp;Lite</b> (the 5.x builds).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTRIBUTE -->
+  <section class="wrap section-tight">
+    <div class="card fade-up" style="border-left:3px solid var(--green)">
+      <span class="badge" style="color:var(--green);border-color:var(--green-dim);background:var(--green-dim)">🤝 Contribute</span>
+      <h2 style="margin-top:.5em">Every config you share helps someone else</h2>
+      <p style="margin-bottom:0">If a game runs well for you, hit <b>Export Config</b> in its settings menu — your tuned setup joins the library for everyone on similar hardware. Questions, requests or a device that needs love? The community hangs out on <a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a>.</p>
+    </div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="card center fade-up" style="background:linear-gradient(180deg,var(--green-dim),var(--bg-2))">
+      <h2 style="margin-bottom:.3em">Browse the config library</h2>
+      <p class="lead" style="margin:0 auto 22px">Search by game, filter by device, compare side by side, download JSON.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="https://the412banner.github.io/bannerhub-game-configs/" target="_blank" rel="noopener">Open the library</a>
+        <a class="btn btn-ghost" href="https://github.com/The412Banner/bannerhub-game-configs" target="_blank" rel="noopener">View the repo</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="logo">B</span> BannerHub</a>
+        <p class="foot-disc muted" style="margin-top:14px">Community builds of GameHub / GameHub&nbsp;Lite for running PC games on Android — privacy-hardened, account-free, with curated components.</p>
+      </div>
+      <div><h4>Projects</h4><a href="lite.html">BannerHub Lite</a><a href="bannerhub.html">BannerHub</a><a href="v6.html">BannerHub v6</a></div>
+      <div><h4>Learn</h4><a href="why.html">Why BannerHub</a><a href="compare.html">Compare versions</a><a href="v6-privacy.html">Privacy hardening</a><a href="apis.html">APIs &amp; backends</a><a href="faq.html">FAQ</a><a href="credits.html">Credits</a></div>
+      <div><h4>Source &amp; community</h4><a href="https://github.com/The412Banner" target="_blank" rel="noopener">GitHub org</a><a href="https://github.com/The412Banner/Bannerhub-Lite" target="_blank" rel="noopener">Lite repo</a><a href="https://github.com/The412Banner/BannerHub" target="_blank" rel="noopener">BannerHub repo</a><a href="https://github.com/The412Banner/bannerhub-revanced" target="_blank" rel="noopener">v6 repo</a><a href="configs.html">Game configs</a><a href="https://discord.gg/n8S4G2WZQ4" target="_blank" rel="noopener">Discord</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> The412Banner · Community project.</span>
+      <span class="foot-disc">Not affiliated with XiaoJi, GameHub, Valve, Epic, GOG or Amazon. BannerHub modifies GameHub / GameHub&nbsp;Lite; all trademarks belong to their respective owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
