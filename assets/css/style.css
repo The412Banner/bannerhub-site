@@ -81,6 +81,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   background: rgba(11,14,20,.78);
   border-bottom: 1px solid var(--border);
 }
+.site-header .wrap { max-width: 1280px; }
 .nav { display: flex; align-items: center; gap: 12px; height: 62px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800;
   font-size: 1.06rem; color: var(--text); letter-spacing: -.02em; }
@@ -109,7 +110,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   border: 1px solid var(--border); color: var(--text); width: 40px; height: 38px;
   border-radius: 9px; font-size: 1.2rem; cursor: pointer; }
 
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .nav-toggle { display: block; }
   .nav-links {
     position: absolute; top: 62px; left: 0; right: 0; flex-direction: column;
