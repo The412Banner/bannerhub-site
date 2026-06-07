@@ -74,7 +74,13 @@
       </table>
     </div>
     <div class="note" style="margin-top:20px">
-      <p><strong>Empirically verified:</strong> on a real device, a full 6.5-minute session (install → open → game launch → in-game → quit) recorded <strong>zero DNS queries</strong> for <code>statistic-gamehub-api.vgabc.com</code>, <code>dev2-gamehub-api.vgabc.com</code> or <code>landscape-api-beta.vgabc.com</code>, and zero logcat hits for any of them.</p>
+      <p><strong>Empirically verified:</strong> on a real device, a full 6.5-minute session (install → open → game launch → in-game → quit) recorded <strong>zero DNS queries</strong> for <code>statistic-gamehub-api.vgabc.com</code>, <code>dev2-gamehub-api.vgabc.com</code> or <code>landscape-api-beta.vgabc.com</code>, and zero logcat hits for any of them. <span class="muted">(Trace captured on the 6.0.4 line; the kill patches on 6.0.7 are the same mechanisms re-fingerprinted against the new bytecode.)</span></p>
+    </div>
+
+    <div class="sec-head" style="margin-top:34px"><h2>🪶 Rolled into every build</h2><p class="muted">The 6.0.4 line shipped these as <em>Lite-only</em> strips. On the 6.0.7 base there's no separate Lite, so the two privacy-relevant ones now apply to <strong>every</strong> variant by default.</p></div>
+    <div class="grid grid-2">
+      <div class="card fade-up"><h3 style="margin-top:0">Aliyun NumberAuth <span class="muted" style="font-weight:400">— carrier phone-login SDK</span></h3><p style="margin-bottom:0">Alibaba's carrier "one-tap" login (<code>com.mobile.auth.gatewayauth.*</code>) resolves your phone number through your mobile carrier — an identity surface — and bundles anti-tamper / root / emulator / proxy fingerprint checks. Dead weight under BannerHub's login bypass. The sole <code>System.loadLibrary</code> site is stubbed to a no-op, then <code>libpns-*-alijtca_plus.so</code> is deleted. <a href="https://github.com/The412Banner/bannerhub-revanced/commit/590584f" target="_blank" rel="noopener"><code>590584f</code></a></p></div>
+      <div class="card fade-up"><h3 style="margin-top:0">Haima cloud-gaming stack <span class="muted" style="font-weight:400">— HMCP / WebRTC</span></h3><p style="margin-bottom:0">XiaoJi's cloud-gaming feature streams games from <strong>XiaoJi cloud servers</strong> — non-functional under the catalog redirect, and a live connection to XiaoJi infrastructure. The two SDK native load sites are neutralised first, then the 4 Haima libs + the whole <code>features.cloud</code> asset tree are stripped (~21.5 MB). <a href="https://github.com/The412Banner/bannerhub-revanced/commit/590584f" target="_blank" rel="noopener"><code>590584f</code></a></p></div>
     </div>
   </section>
 
