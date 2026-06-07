@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy hardening &amp; Lite builds — BannerHub v6</title>
-<meta name="description" content="Exactly what BannerHub v6's privacy hardening kills (8 telemetry channels, with commit links), what it honestly leaves in place and why, how to verify it yourself — plus what the v6 Lite builds remove and keep.">
+<title>Privacy hardening — BannerHub v6</title>
+<meta name="description" content="Exactly what BannerHub v6's privacy hardening kills (8 telemetry channels, with commit links), what it honestly leaves in place and why, and how to verify it yourself.">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5b942'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
 </head>
@@ -40,25 +40,24 @@
   <section class="hero wrap" style="padding-bottom:24px">
     <p class="eyebrow" style="color:var(--accent)">BannerHub v6 · privacy</p>
     <h1>Privacy hardening,<br>told honestly.</h1>
-    <p class="lead" style="margin:0 auto">BannerHub v6 strips upstream telemetry from GameHub 6.0.4 at the bytecode level — and discloses both halves: what it <strong>kills</strong> and what it deliberately <strong>leaves in place</strong>. Anyone with a DNS recorder can verify both, so we'd rather tell you up front.</p>
+    <p class="lead" style="margin:0 auto">BannerHub v6 strips upstream telemetry from GameHub 6.0.7 at the bytecode level — and discloses both halves: what it <strong>kills</strong> and what it deliberately <strong>leaves in place</strong>. Anyone with a DNS recorder can verify both, so we'd rather tell you up front.</p>
     <div class="anchor-nav" style="justify-content:center;margin-top:22px">
       <a href="#kill">What we kill</a>
       <a href="#leave">What remains</a>
       <a href="#scope">Out of scope</a>
       <a href="#verify">Verify it yourself</a>
-      <a href="#lite">v6 Lite builds</a>
     </div>
   </section>
 
   <section class="wrap section-tight">
     <div class="note">
-      <p>This page covers only the <strong>BannerHub-side patches</strong> to the v6 build (<code>gamehub-604-build</code>). It does not cover GameHub's upstream behaviour, the Wine / Box64 stack, or the individual Windows games you run inside it. Source of truth: the repo's <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/PRIVACY.md" target="_blank" rel="noopener">PRIVACY.md</a>.</p>
+      <p>This page covers only the <strong>BannerHub-side patches</strong> to the v6 build (<code>gamehub-607-build</code>). It does not cover GameHub's upstream behaviour, the Wine / Box64 stack, or the individual Windows games you run inside it. Source of truth: the repo's <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-607-build/PRIVACY.md" target="_blank" rel="noopener">PRIVACY.md</a>.</p>
     </div>
   </section>
 
   <!-- KILL -->
   <section class="section wrap" style="padding-top:14px" id="kill">
-    <div class="sec-head"><h2>✕ What we kill</h2><p class="muted">Each row was a live telemetry channel on vanilla GameHub 6.0.4 and is no longer reachable in BannerHub v6. The commit link is the actual code that did it.</p></div>
+    <div class="sec-head"><h2>✕ What we kill</h2><p class="muted">Each row was a live telemetry channel on vanilla GameHub 6.0.7 and is no longer reachable in BannerHub v6. The commit link is the actual code that did it.</p></div>
     <div class="table-scroll fade-up">
       <table>
         <thead><tr><th>Channel</th><th>What it leaked</th><th>How it's killed</th><th>Commit</th></tr></thead>
@@ -127,58 +126,6 @@
   </section>
 
   <hr class="wrap" style="max-width:var(--maxw)">
-
-  <!-- LITE BUILDS -->
-  <section class="section wrap" style="padding-top:30px" id="lite">
-    <div class="sec-head"><h2>🪶 What the v6 Lite builds are for</h2>
-      <p class="lead" style="margin:0">Separate from the standalone <a href="lite.html">BannerHub Lite</a> product, <strong>every v6 variant ships an optional "Lite" build</strong>: the exact same app with three chunks of dead weight removed to shrink the download — <strong>without losing Steam, Epic, AI Frame Generation or any feature you actually game with.</strong></p>
-    </div>
-
-    <div class="pill-row">
-      <span class="badge purple">~78 MB vs ~114 MB</span>
-      <span class="badge purple">≈36 MB / ~32% smaller</span>
-      <span class="badge">pkg <code>banner.hub.lite</code></span>
-      <span class="badge blue">installs side-by-side</span>
-    </div>
-
-    <div class="grid grid-3" style="margin-top:22px">
-      <div class="card fade-up"><span class="badge amber">~14 MB</span><h3>1 · Dead font + phone-login</h3><p style="margin-bottom:0">The app shipped the same 20 MB font file twice — the unused copy is deleted (looks 100% identical). Also removes an Aliyun carrier "one-tap phone login" library BannerHub never uses (it uses login-bypass). <b>You lose: nothing.</b></p></div>
-      <div class="card fade-up"><span class="badge amber">~21 MB</span><h3>2 · Cloud-gaming engine</h3><p style="margin-bottom:0">Strips the bundled Haima cloud-gaming streaming engine and its graphics — effectively unused for normal local play under the catalog redirect. <b>You lose:</b> the in-app cloud-streaming tiles only. <b>Local Steam / Epic / your own games are unaffected.</b></p></div>
-      <div class="card fade-up"><span class="badge amber">~5 MB</span><h3>3 · AVIF / HEIC decoders</h3><p style="margin-bottom:0">Removes extra libraries that decoded three modern image formats; Android's built-in decoder handles them instead. <b>You lose:</b> in theory a rare image format might not render — but in testing all cover art, avatars and banners displayed correctly. JPEG/PNG/WebP/GIF are 100% unaffected.</p></div>
-    </div>
-
-    <div class="grid grid-2" style="margin-top:22px">
-      <div class="card fade-up">
-        <h3 style="margin-top:0">✅ Fully kept in Lite</h3>
-        <ul class="flist">
-          <li><b>Steam</b> — full client support &amp; launching</li>
-          <li><b>Epic / EOS</b> — full support</li>
-          <li><b>AI Frame Generation</b> — the in-game menu &amp; FPS boost</li>
-          <li>Controller vibration / rumble</li>
-          <li>All container / Wine / DXVK / driver tooling</li>
-          <li>Front-end launcher contract (Beacon / ES-DE / Daijishou)</li>
-          <li>Every game-launching and library feature of the full build</li>
-        </ul>
-        <p style="margin-bottom:0" class="muted">Steam and Epic are <em>never</em> removed from Lite, even though doing so would shrink it further — keeping them is the whole point. Lite is a smaller version of the <em>full</em> experience, not a cut-down one.</p>
-      </div>
-      <div class="card fade-up">
-        <h3 style="margin-top:0">Beta testing status</h3>
-        <div class="table-scroll" style="box-shadow:none;border:none">
-          <table>
-            <tbody>
-              <tr><td>Install &amp; launch</td><td class="cmp y">✓ confirmed</td></tr>
-              <tr><td>Login bypass</td><td class="cmp y">✓ confirmed</td></tr>
-              <tr><td>Fonts / appearance</td><td class="cmp y">✓ identical</td></tr>
-              <tr><td>Cover art / avatars / banners</td><td class="cmp y">✓ rendering</td></tr>
-              <tr><td>Cloud-gaming tiles don't crash</td><td class="cmp p">🔄 please test</td></tr>
-              <tr><td>Steam &amp; Epic launch</td><td class="cmp p">🔄 please test</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="margin-bottom:0" class="muted">A Lite APK shares its full counterpart's package &amp; cert — installing Lite <strong>replaces</strong> the matching full build (and vice-versa). They don't coexist; pick one per row. Full write-up: <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-604-build/bannerhub-v6-lite.md" target="_blank" rel="noopener">bannerhub-v6-lite.md</a>.</p>
-      </div>
-    </div>
-  </section>
 
   <section class="wrap section" style="padding-top:0">
     <div class="card center fade-up" style="background:linear-gradient(180deg,var(--accent-dim),var(--bg-2))">

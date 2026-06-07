@@ -14,20 +14,20 @@ The official landing &amp; documentation site for the three BannerHub products �
 | BannerHub Lite | `lite.html` | Features + per-release changelog |
 | BannerHub | `bannerhub.html` | Features + per-release changelog |
 | BannerHub v6 | `v6.html` | Features + per-release changelog |
-| Privacy &amp; Lite builds | `v6-privacy.html` | v6 telemetry kill/leave table + the v6 Lite-build breakdown |
+| Privacy | `v6-privacy.html` | v6 telemetry kill/leave table |
 | FAQ | `faq.html` | Frequently asked questions |
 
 ## The three products
 
 - **BannerHub Lite** — https://github.com/The412Banner/Bannerhub-Lite (base: GameHub Lite 5.1.4)
 - **BannerHub** — https://github.com/The412Banner/BannerHub (base: GameHub 5.3.5 ReVanced)
-- **BannerHub v6** — https://github.com/The412Banner/bannerhub-revanced (base: XiaoJi GameHub 6.0.4)
+- **BannerHub v6** — https://github.com/The412Banner/bannerhub-revanced (base: XiaoJi GameHub 6.0.7)
 
 ## Tech
 
 Plain HTML + one CSS file (`assets/css/style.css`) + one progressive-enhancement JS file (`assets/js/main.js`). No build step, no framework, no tracking. `.nojekyll` is present so GitHub Pages serves files as-is.
 
-Content (feature lists, changelogs, the privacy table) is sourced from each repo's GitHub release notes, `PRIVACY.md` and `bannerhub-v6-lite.md`. Live version numbers auto-update from the latest stable releases — see [`automation/README.md`](automation/README.md).
+Content (feature lists, changelogs, the privacy table) is sourced from each repo's GitHub release notes and `PRIVACY.md`. Live version numbers auto-update from the latest stable releases — see [`automation/README.md`](automation/README.md).
 
 ## Local preview
 

@@ -54,7 +54,7 @@
       <details>
         <summary>Which version should I install — Lite, BannerHub, or v6?</summary>
         <div class="faq-body">
-          <p><b>BannerHub</b> (v3.7.x) is the most mature, full-featured choice for most people. <b>BannerHub Lite</b> is the lighter build for lower-end or storage-limited devices. <b>BannerHub v6</b> is the newest base (GameHub 6.0.4) with bytecode-level privacy hardening, but is still a work in progress with different game compatibility.</p>
+          <p><b>BannerHub</b> (v3.7.x) is the most mature, full-featured choice for most people. <b>BannerHub Lite</b> is the lighter build for lower-end or storage-limited devices. <b>BannerHub v6</b> is the newest base (GameHub 6.0.7) with bytecode-level privacy hardening, but is still a work in progress with different game compatibility.</p>
           <p>See the full <a href="compare.html">side-by-side comparison</a> to decide.</p>
         </div>
       </details>
@@ -147,10 +147,6 @@
         <div class="faq-body"><p>Each variant uses a different package name (spoofing apps like PuBG or AnTuTu) so multiple builds — and the original GameHub — coexist on one device, and so some performance-profiling can be triggered. Most people just want the <b>Normal</b> variant. Note: spoof variants can push the device harder and run hotter — use with cooling.</p></div>
       </details>
       <details>
-        <summary>What's the difference between "BannerHub Lite" and a v6 "Lite" build?</summary>
-        <div class="faq-body"><p>They're unrelated. <b>BannerHub Lite</b> is its own product, built on GameHub Lite 5.1.4. A v6 <b>Lite build</b> is a ~32%-smaller variant of BannerHub v6 (same app, dead weight trimmed) that installs in place of its matching full v6 build. Details on the <a href="v6-privacy.html#lite">privacy &amp; Lite page</a>.</p></div>
-      </details>
-      <details>
         <summary>Can BannerHub install over / update the original GameHub?</summary>
         <div class="faq-body"><p>Only the <b>Original</b> variant (which keeps GameHub's package name) replaces a stock install — and only after uninstalling, since the signing certificate differs. The other variants install alongside GameHub as separate apps.</p></div>
       </details>
@@ -164,7 +160,7 @@
       </details>
       <details>
         <summary>A game won't run — where do I start?</summary>
-        <div class="faq-body"><p>Open the game's PC settings and try a different component combo (Wine/Proton container, DXVK, Box64 preset). Check the community config library (in BannerHub) for a known-good config for your device. On v6, try GPU Spoof for "unsupported video card" errors, or the Legacy renderer toggle for games that regressed under 6.0.4. Then ask in the Discord with your device + logcat.</p></div>
+        <div class="faq-body"><p>Open the game's PC settings and try a different component combo (Wine/Proton container, DXVK, Box64 preset). Check the community config library (in BannerHub) for a known-good config for your device. On v6 (6.0.7), GameHub's own native GPU-spoof setting can clear "unsupported video card" errors. (On the older 6.0.4 v6 line, BannerHub added per-game GPU Spoof and a Legacy renderer toggle for that — both are 6.0.4-only.) Then ask in the Discord with your device + logcat.</p></div>
       </details>
     </div>
 
