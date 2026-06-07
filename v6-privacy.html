@@ -40,7 +40,7 @@
   <section class="hero wrap" style="padding-bottom:24px">
     <p class="eyebrow" style="color:var(--accent)">BannerHub v6 · privacy</p>
     <h1>Privacy hardening,<br>told honestly.</h1>
-    <p class="lead" style="margin:0 auto">BannerHub v6 strips upstream telemetry from GameHub 6.0.7 at the bytecode level — and discloses both halves: what it <strong>kills</strong> and what it deliberately <strong>leaves in place</strong>. Anyone with a DNS recorder can verify both, so we'd rather tell you up front.</p>
+    <p class="lead" style="margin:0 auto">BannerHub v6 strips upstream telemetry from GameHub 6.0.8 at the bytecode level — and discloses both halves: what it <strong>kills</strong> and what it deliberately <strong>leaves in place</strong>. Anyone with a DNS recorder can verify both, so we'd rather tell you up front.</p>
     <div class="anchor-nav" style="justify-content:center;margin-top:22px">
       <a href="#kill">What we kill</a>
       <a href="#leave">What remains</a>
@@ -52,13 +52,13 @@
 
   <section class="wrap section-tight">
     <div class="note">
-      <p>This page covers only the <strong>BannerHub-side patches</strong> to the v6 build (<code>gamehub-607-build</code>). It does not cover GameHub's upstream behaviour, the Wine / Box64 stack, or the individual Windows games you run inside it. Source of truth: the repo's <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-607-build/PRIVACY.md" target="_blank" rel="noopener">PRIVACY.md</a>.</p>
+      <p>This page covers only the <strong>BannerHub-side patches</strong> to the v6 build (<code>gamehub-608-build</code>). It does not cover GameHub's upstream behaviour, the Wine / Box64 stack, or the individual Windows games you run inside it. Source of truth: the repo's <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-608-build/PRIVACY.md" target="_blank" rel="noopener">PRIVACY.md</a>.</p>
     </div>
   </section>
 
   <!-- KILL -->
   <section class="section wrap" style="padding-top:14px" id="kill">
-    <div class="sec-head"><h2>✕ What we kill</h2><p class="muted">Each row was a live telemetry channel on vanilla GameHub 6.0.7 and is no longer reachable in BannerHub v6. The commit link is the actual code that did it.</p></div>
+    <div class="sec-head"><h2>✕ What we kill</h2><p class="muted">Each row was a live telemetry channel on vanilla GameHub 6.0.8 and is no longer reachable in BannerHub v6. The commit link is the actual code that did it.</p></div>
     <div class="table-scroll fade-up">
       <table>
         <thead><tr><th>Channel</th><th>What it leaked</th><th>How it's killed</th><th>Commit</th></tr></thead>
@@ -75,10 +75,10 @@
       </table>
     </div>
     <div class="note" style="margin-top:20px">
-      <p><strong>Empirically verified:</strong> on a real device, a full 6.5-minute session (install → open → game launch → in-game → quit) recorded <strong>zero DNS queries</strong> for <code>statistic-gamehub-api.vgabc.com</code>, <code>dev2-gamehub-api.vgabc.com</code> or <code>landscape-api-beta.vgabc.com</code>, and zero logcat hits for any of them. <span class="muted">(Trace captured on the 6.0.4 line; the kill patches on 6.0.7 are the same mechanisms re-fingerprinted against the new bytecode.)</span></p>
+      <p><strong>Empirically verified:</strong> on a real device, a full 6.5-minute session (install → open → game launch → in-game → quit) recorded <strong>zero DNS queries</strong> for <code>statistic-gamehub-api.vgabc.com</code>, <code>dev2-gamehub-api.vgabc.com</code> or <code>landscape-api-beta.vgabc.com</code>, and zero logcat hits for any of them. <span class="muted">(Trace captured on the 6.0.4 line; the kill patches on 6.0.8 are the same mechanisms re-fingerprinted against the new bytecode.)</span></p>
     </div>
 
-    <div class="sec-head" style="margin-top:34px"><h2>🪶 Rolled into every build</h2><p class="muted">The 6.0.4 line shipped these as <em>Lite-only</em> strips. On the 6.0.7 base there's no separate Lite, so the two privacy-relevant ones now apply to <strong>every</strong> variant by default.</p></div>
+    <div class="sec-head" style="margin-top:34px"><h2>🪶 Rolled into every build</h2><p class="muted">The 6.0.4 line shipped these as <em>Lite-only</em> strips. On the 6.0.8 base there's no separate Lite, so the two privacy-relevant ones now apply to <strong>every</strong> variant by default.</p></div>
     <div class="grid grid-2">
       <div class="card fade-up"><h3 style="margin-top:0">Aliyun NumberAuth <span class="muted" style="font-weight:400">— carrier phone-login SDK</span></h3><p style="margin-bottom:0">Alibaba's carrier "one-tap" login (<code>com.mobile.auth.gatewayauth.*</code>) resolves your phone number through your mobile carrier — an identity surface — and bundles anti-tamper / root / emulator / proxy fingerprint checks. Dead weight under BannerHub's login bypass. The sole <code>System.loadLibrary</code> site is stubbed to a no-op, then <code>libpns-*-alijtca_plus.so</code> is deleted. <a href="https://github.com/The412Banner/bannerhub-revanced/commit/590584f" target="_blank" rel="noopener"><code>590584f</code></a></p></div>
       <div class="card fade-up"><h3 style="margin-top:0">Haima cloud-gaming stack <span class="muted" style="font-weight:400">— HMCP / WebRTC</span></h3><p style="margin-bottom:0">XiaoJi's cloud-gaming feature streams games from <strong>XiaoJi cloud servers</strong> — non-functional under the catalog redirect, and a live connection to XiaoJi infrastructure. The two SDK native load sites are neutralised first, then the 4 Haima libs + the whole <code>features.cloud</code> asset tree are stripped (~21.5 MB). <a href="https://github.com/The412Banner/bannerhub-revanced/commit/590584f" target="_blank" rel="noopener"><code>590584f</code></a></p></div>
@@ -111,7 +111,7 @@
         <div class="card" style="background:var(--bg-2)"><h3 style="margin-top:0">Steam</h3><p style="margin-bottom:0">Login happens inside the <strong>real Steam client</strong> running under Wine — the genuine Valve binary. Your credentials and Steam Guard go directly to Valve. BannerHub has no code in that path and never sees your password or session token.</p></div>
         <div class="card" style="background:var(--bg-2)"><h3 style="margin-top:0">Epic</h3><p style="margin-bottom:0">Handled entirely by <strong>Epic Online Services</strong>. BannerHub ships <strong>no Epic login or networking code at all</strong>, so your Epic credentials go directly to Epic.</p></div>
       </div>
-      <p class="muted" style="margin:14px 0 0;font-size:.88rem">None of BannerHub's patches rewrite a Steam / GOG / Epic host, and the catalog redirect only ever touches XiaoJi's two <code>landscape-api-*.vgabc.com</code> hosts — so your store sign-ins never transit the BannerHub Worker, Cloudflare, or GameHub's servers. Verify in <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-607-build/extensions/gamehub/src/main/java/app/revanced/extension/gamehub/gog/GogLoginActivity.java" target="_blank" rel="noopener"><code>GogLoginActivity.java</code></a>.</p>
+      <p class="muted" style="margin:14px 0 0;font-size:.88rem">None of BannerHub's patches rewrite a Steam / GOG / Epic host, and the catalog redirect only ever touches XiaoJi's two <code>landscape-api-*.vgabc.com</code> hosts — so your store sign-ins never transit the BannerHub Worker, Cloudflare, or GameHub's servers. Verify in <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-608-build/extensions/gamehub/src/main/java/app/revanced/extension/gamehub/gog/GogLoginActivity.java" target="_blank" rel="noopener"><code>GogLoginActivity.java</code></a>.</p>
     </div>
   </section>
 

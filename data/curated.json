@@ -2,5 +2,5 @@
   "_comment": "The latest stable version each project's CURATED content (changelog highlights + comparison matrix) currently reflects. Bump a value here only AFTER you've added that release's curated changelog entry and reviewed the comparison matrix. The auto-updater compares these against the live latest stable release and opens a staleness issue when they differ.",
   "lite": "v1.0.2",
   "full": "v3.7.5",
-  "v6": "v1.8.0-604"
+  "v6": "v1.0.0-608"
 }
