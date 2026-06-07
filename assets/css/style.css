@@ -265,6 +265,9 @@ table.cmp-table tr.grp td { background: var(--bg-3); color: var(--primary-2); fo
 .rel ul { margin: 6px 0 0; padding-left: 18px; }
 .rel ul li { color: var(--text-2); margin-bottom: 5px; }
 .rel ul li b, .rel p b { color: var(--text); }
+.rel .rel-sub { font-weight: 700; font-size: 1rem; color: var(--text); margin: 12px 0 2px; }
+.rel .rel-sub:first-of-type { margin-top: 8px; }
+.rel .rel-desc { margin: 0 0 4px; color: var(--text-2); font-size: .92rem; }
 
 /* ---------- callouts ---------- */
 .note { border-left: 3px solid var(--primary); background: var(--primary-dim);

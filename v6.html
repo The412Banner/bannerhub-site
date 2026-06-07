@@ -154,10 +154,14 @@
 
       <div class="rel latest fade-up">
         <div class="rel-head"><span class="ver">v1.0.0-607</span><span class="date">2026-06-06</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.0.0-607" target="_blank" rel="noopener">release notes ↗</a></div>
-        <ul>
-          <li><b>First stable on the GameHub 6.0.7 base</b> (versionCode 118) — every patch re-fingerprinted against the 6.0.7 bytecode (R8 reshuffle, the <code>:wine</code> process folded into main, the Compose menu rewrite) and device-verified end-to-end. Same keystore as the 6.0.4 line, so it installs in place. XiaoJi's own −46% size pass keeps each variant to ~47 MB.</li>
-          <li><b>GPU Spoof and the Legacy renderer toggle are now 6.0.4-only</b> — 6.0.7 ships a native GPU spoof, and its rewritten Vulkan X-server is incompatible with the old GLES2 renderer libs. Everything else (GOG, Explore, vibration, perf overlay, recording-compatible audio, offline picker, privacy hardening) carries forward.</li>
-        </ul>
+        <p class="rel-sub">🧱 Rebased onto GameHub 6.0.7</p>
+        <p class="rel-desc">First stable on the 6.0.7 base (versionCode 118). Every BannerHub v6 patch was re-fingerprinted against the 6.0.7 bytecode — R8 reshuffle, the <code>:wine</code> process folded into the main process, the Compose menu rewrite — and device-verified end-to-end. Same keystore as the 6.0.4 line, so it installs in place over the 604 series.</p>
+        <p class="rel-sub">🪶 Smaller — and no separate Lite</p>
+        <p class="rel-desc">XiaoJi's own −46% size pass keeps each variant to ~47 MB — already smaller than the old 6.0.4 Lite, so there's no separate Lite build anymore; the concept is absorbed into every variant.</p>
+        <p class="rel-sub">⚠️ GPU Spoof &amp; the Legacy renderer toggle removed</p>
+        <p class="rel-desc">Both are now 6.0.4-only. 6.0.7 ships its own native GPU spoof (so the patch is redundant), and its rewritten Vulkan X-server is incompatible with the old GLES2 <code>libxserver.so</code> / <code>libwinemu.so</code> pair (device-confirmed SIGABRT), so the renderer patches stay pinned to 6.0.4.</p>
+        <p class="rel-sub">✅ Everything else carries over</p>
+        <p class="rel-desc">GOG integration, the BannerHub Explore homepage, PC-accurate vibration, the in-game performance overlay (root), recording-compatible audio, the offline component picker and the full privacy-hardening stack all ship forward unchanged.</p>
       </div>
 
       <div class="rel fade-up">
