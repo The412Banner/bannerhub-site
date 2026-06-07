@@ -44,6 +44,7 @@
     <div class="anchor-nav" style="justify-content:center;margin-top:22px">
       <a href="#kill">What we kill</a>
       <a href="#leave">What remains</a>
+      <a href="#logins">Store logins</a>
       <a href="#scope">Out of scope</a>
       <a href="#verify">Verify it yourself</a>
     </div>
@@ -96,6 +97,21 @@
         <p>This serves the <code>/v6/</code> catalog API — game lists, cover-art URLs, component metadata and per-game install scripts. It's what replaces XiaoJi's catalog and lets BannerHub function at all.</p>
         <p style="margin-bottom:0"><strong>The honest trust-shift:</strong> we didn't move XiaoJi-side trust to <em>nothing</em> — part of it moved to The412Banner + Cloudflare, who see the edge traffic regardless. But the Worker runs <strong>no analytics</strong>, logs <strong>no per-user request bodies</strong>, and knows nothing about you beyond the source IP Cloudflare sees on any HTTPS request. The original analytics-kill design would have routed telemetry through the Worker and discarded it server-side; the shipped design stubs it <em>client-side</em> instead, so telemetry never reaches the Worker at all. Source: <a href="https://github.com/The412Banner/bannerhub-api" target="_blank" rel="noopener">The412Banner/bannerhub-api</a>.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- STORE LOGINS -->
+  <section class="section wrap" style="padding-top:0" id="logins">
+    <div class="card fade-up" style="border-left:3px solid var(--green)">
+      <span class="badge" style="color:var(--green);border-color:var(--green-dim);background:var(--green-dim)">🔐 Your store credentials are safe</span>
+      <h2 style="margin-top:.5em">Steam, GOG &amp; Epic logins stay between you and the store</h2>
+      <p>BannerHub is a launcher and catalog layer — <strong>not</strong> an auth broker. It never asks for, sees, stores, or relays your Steam, GOG, or Epic <strong>password or session token</strong>. Each sign-in goes straight to that store, exactly as it would in the store's own client.</p>
+      <div class="grid grid-3" style="margin-top:8px">
+        <div class="card" style="background:var(--bg-2)"><h3 style="margin-top:0">GOG</h3><p style="margin-bottom:0">"Sign in to GOG" opens GOG's <strong>own</strong> OAuth page (<code>auth.gog.com</code>) in a WebView — you type your password into <strong>GOG's</strong> form, so it goes straight to GOG. The returned token is stored <strong>only on your device</strong> and used only against GOG's own servers. It is never sent to the BannerHub Worker or GameHub.</p></div>
+        <div class="card" style="background:var(--bg-2)"><h3 style="margin-top:0">Steam</h3><p style="margin-bottom:0">Login happens inside the <strong>real Steam client</strong> running under Wine — the genuine Valve binary. Your credentials and Steam Guard go directly to Valve. BannerHub has no code in that path and never sees your password or session token.</p></div>
+        <div class="card" style="background:var(--bg-2)"><h3 style="margin-top:0">Epic</h3><p style="margin-bottom:0">Handled entirely by <strong>Epic Online Services</strong>. BannerHub ships <strong>no Epic login or networking code at all</strong>, so your Epic credentials go directly to Epic.</p></div>
+      </div>
+      <p class="muted" style="margin:14px 0 0;font-size:.88rem">None of BannerHub's patches rewrite a Steam / GOG / Epic host, and the catalog redirect only ever touches XiaoJi's two <code>landscape-api-*.vgabc.com</code> hosts — so your store sign-ins never transit the BannerHub Worker, Cloudflare, or GameHub's servers. Verify in <a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-607-build/extensions/gamehub/src/main/java/app/revanced/extension/gamehub/gog/GogLoginActivity.java" target="_blank" rel="noopener"><code>GogLoginActivity.java</code></a>.</p>
     </div>
   </section>
 
