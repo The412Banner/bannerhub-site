@@ -42,7 +42,7 @@
     <h1>BannerHub v6</h1>
     <p class="lead" style="margin:0 auto">The next-generation build on the newest GameHub base. Account-free and <strong>privacy-hardened</strong> at the bytecode level, with a curated catalog API, PC-accurate per-game vibration, an in-game performance overlay, GOG integration, and 9 side-by-side variants.</p>
     <div class="pill-row" style="justify-content:center;margin-top:20px">
-      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.0.0-608</span></span>
+      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.1.0-608</span></span>
       <span class="badge">pkg <code>banner.hub</code></span>
       <span class="badge">9 side-by-side variants</span>
       <span class="badge amber">🔒 Privacy-hardened</span>
@@ -97,6 +97,7 @@
       <div class="card fade-up">
         <h3 style="margin-top:0">📲 Experience &amp; packaging</h3>
         <ul class="flist">
+          <li><b>In-game Steam friends &amp; chat overlay</b> — draggable pill for your friends list, presence, unread badges and inline read/reply chat. No root.</li>
           <li><b>In-game performance overlay</b> (root) — draggable pill for CPU-governor &amp; Adreno-clock toggles, auto-reverts on exit.</li>
           <li><b>BannerHub Explore homepage</b> with What's-New, version readout &amp; update banner.</li>
           <li><b>Recording-compatible audio</b> toggle, muted UI sounds, root-free file-manager access.</li>
@@ -108,7 +109,7 @@
 
     <div class="card fade-up" style="margin-top:22px">
       <h3 style="margin-top:0">🧬 How it's built</h3>
-      <p style="margin-top:0">v6 is produced with <b>ReVanced CLI 6.0.0</b> from an unmodified XiaoJi GameHub 6.0.8 base APK (versionCode 119) — only the bytecode and resources the patches need are touched. Builds come from the <code>gamehub-608-build</code> branch. Every patch (login bypass, catalog redirect, privacy hardening, vibration, GOG, in-game overlay, and more) is documented in the repo's <a href="https://github.com/The412Banner/bannerhub-revanced#patches-applied" target="_blank" rel="noopener">Patches&nbsp;Applied</a> section. XiaoJi's own −46% size pass keeps each variant to ~47 MB.</p>
+      <p style="margin-top:0">v6 is produced with <b>ReVanced CLI 6.0.0</b> from an unmodified XiaoJi GameHub 6.0.8 base APK (versionCode 119) — only the bytecode and resources the patches need are touched. Builds come from the <code>gamehub-608-build</code> branch. Every patch (login bypass, catalog redirect, privacy hardening, vibration, GOG, in-game Steam chat &amp; perf overlays, and more) is documented in the repo's <a href="https://github.com/The412Banner/bannerhub-revanced#patches-applied" target="_blank" rel="noopener">Patches&nbsp;Applied</a> section. XiaoJi's own −46% size pass keeps each variant to ~47 MB.</p>
     </div>
   </section>
 
@@ -136,7 +137,7 @@
             <li><b>Login bypass</b> + a custom curated <b>catalog API</b>.</li>
             <li><b>Privacy hardening</b> — 8 telemetry channels killed (<a href="v6-privacy.html">details</a>).</li>
             <li>Per-game <b>PC-accurate vibration</b> &amp; a strict per-game settings store.</li>
-            <li>GOG integration, in-game perf overlay, recording-compatible audio, Explore homepage.</li>
+            <li>In-game Steam friends/chat overlay, GOG integration, in-game perf overlay, recording-compatible audio, Explore homepage.</li>
             <li>9 side-by-side variants, ~47 MB each.</li>
           </ul>
           <p class="muted" style="margin-top:10px;font-size:.86rem">Only the bytecode &amp; resources the patches need are touched; the base APK is otherwise unmodified (versionCode 118).</p>
@@ -153,6 +154,15 @@
     <div class="timeline">
 
       <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v1.1.0-608</span><span class="date">2026-06-08</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.1.0-608" target="_blank" rel="noopener">release notes ↗</a></div>
+        <p class="rel-sub">💬 In-game Steam friends &amp; chat overlay</p>
+        <p class="rel-desc">A new draggable 💬 pill over your game opens your full Steam friends list — avatars, online / in-game presence, and unread badges — and lets you <b>read and reply to chats inline</b> without leaving the game. Conversations render like the native client: left/right message bubbles, sender names, timestamps, inline images and live incoming messages; opening a chat marks it read and clears its badge. Pin it anywhere down the right edge and fade it with a per-pill opacity slider. Just needs you signed into Steam in GameHub — <b>no root required</b>.</p>
+        <p class="rel-sub">🧹 Banner Tools → one "In-game Overlays" menu</p>
+        <p class="rel-desc">The Steam-chat and performance overlays now share a single <b>In-game Overlays</b> tile that opens for everyone. The Steam-chat toggle is free; the performance toggle is root-gated <em>in place</em> (with a tap-to-grant prompt) instead of locking the whole tile — so non-root users get the chat overlay without hitting a root wall.</p>
+        <p class="rel-desc">Same <code>banner.hub</code> package and stable keystore as the 1.0.0-608 line — installs straight over it.</p>
+      </div>
+
+      <div class="rel fade-up">
         <div class="rel-head"><span class="ver">v1.0.0-608</span><span class="date">2026-06-07</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.0.0-608" target="_blank" rel="noopener">release notes ↗</a></div>
         <p class="rel-sub">🧱 Rebased onto GameHub 6.0.8</p>
         <p class="rel-desc">6.0.8 is a tiny upstream bump — the only native change is <code>libsteamkit_core.so</code> (Steam game-library management, plus the GPU-spoof PC-settings keys moved to a <code>…V2</code> namespace); no Wine, renderer, DXVK or Turnip changes. But XiaoJi's R8 pass reshuffled the obfuscated class/method map again, so all 41 patches were re-fingerprinted against the 6.0.8 bytecode and the build is green end-to-end.</p>
@@ -279,7 +289,7 @@
       <h2 style="margin-bottom:.3em">Get BannerHub v6</h2>
       <p class="lead" style="margin:0 auto 22px">9 variants ship side-by-side on the GameHub 6.0.8 base. Curious what "privacy-hardened" really means? Read the honest breakdown.</p>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.0.0-608</span></a>
+        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.1.0-608</span></a>
         <a class="btn btn-ghost" href="v6-privacy.html">Privacy details</a>
       </div>
     </div>
