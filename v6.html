@@ -42,7 +42,7 @@
     <h1>BannerHub v6</h1>
     <p class="lead" style="margin:0 auto">The next-generation build on the newest GameHub base. Account-free and <strong>privacy-hardened</strong> at the bytecode level, with a curated catalog API, PC-accurate per-game vibration, an in-game performance overlay, GOG integration, and 9 side-by-side variants.</p>
     <div class="pill-row" style="justify-content:center;margin-top:20px">
-      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.1.0-608</span></span>
+      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.2.0-608</span></span>
       <span class="badge">pkg <code>banner.hub</code></span>
       <span class="badge">9 side-by-side variants</span>
       <span class="badge amber">🔒 Privacy-hardened</span>
@@ -154,6 +154,13 @@
     <div class="timeline">
 
       <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v1.2.0-608</span><span class="date">2026-06-08</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.2.0-608" target="_blank" rel="noopener">release notes ↗</a></div>
+        <p class="rel-sub">🔒 Firebase Crashlytics fully disabled</p>
+        <p class="rel-desc">Verifying the privacy patches with a live DNS/SNI capture revealed that GameHub's own startup code was <b>re-enabling Crashlytics data collection at runtime</b>, silently overriding the manifest kill-switch — so Crashlytics was still phoning home to <code>firebase-settings.crashlytics.com</code>, <code>firebaselogging-pa.googleapis.com</code> (the Firebase "Firelog" transport) and <code>firebaseinstallations.googleapis.com</code>. The new <em>Disable Firebase auto-init</em> patch stops that runtime re-enable while leaving FirebaseApp initialized (so the app launches normally), so the manifest "off" finally holds. <b>Device-confirmed</b>: those three Firebase hosts no longer appear in the app's traffic, and the Firebase-driven share of <code>play.googleapis.com</code> drops too. Firebase Analytics was already dead via a hard manifest flag — so this completes the Firebase shutoff. See <a href="v6-privacy.html">the privacy page</a>.</p>
+        <p class="rel-desc">Same <code>banner.hub</code> package and stable keystore as the 1.1.0-608 / 1.0.0-608 line — installs straight over it.</p>
+      </div>
+
+      <div class="rel fade-up">
         <div class="rel-head"><span class="ver">v1.1.0-608</span><span class="date">2026-06-08</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.1.0-608" target="_blank" rel="noopener">release notes ↗</a></div>
         <p class="rel-sub">💬 In-game Steam friends &amp; chat overlay</p>
         <p class="rel-desc">A new draggable 💬 pill over your game opens your full Steam friends list — avatars, online / in-game presence, and unread badges — and lets you <b>read and reply to chats inline</b> without leaving the game. Conversations render like the native client: left/right message bubbles, sender names, timestamps, inline images and live incoming messages; opening a chat marks it read and clears its badge. Pin it anywhere down the right edge and fade it with a per-pill opacity slider. Just needs you signed into Steam in GameHub — <b>no root required</b>.</p>
@@ -289,7 +296,7 @@
       <h2 style="margin-bottom:.3em">Get BannerHub v6</h2>
       <p class="lead" style="margin:0 auto 22px">9 variants ship side-by-side on the GameHub 6.0.8 base. Curious what "privacy-hardened" really means? Read the honest breakdown.</p>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.1.0-608</span></a>
+        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.2.0-608</span></a>
         <a class="btn btn-ghost" href="v6-privacy.html">Privacy details</a>
       </div>
     </div>
