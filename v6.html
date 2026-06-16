@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BannerHub v6 — features &amp; changelog</title>
-<meta name="description" content="BannerHub v6 — the next-gen build on XiaoJi GameHub 6.0.8. Account-free, privacy-hardened (8 telemetry channels killed), curated catalog API, PC-accurate vibration, GOG integration, in-game performance overlay, and 9 side-by-side variants. Full feature list and per-release changelog.">
+<meta name="description" content="BannerHub v6 — the next-gen build on XiaoJi GameHub 6.0.8. Account-free, privacy-hardened (8 telemetry channels killed), curated catalog API, PC-accurate vibration, GOG integration, an in-game Steam chat &amp; voice-call overlay, performance overlay, and 9 side-by-side variants. Full feature list and per-release changelog.">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b48cff'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
 </head>
@@ -42,7 +42,7 @@
     <h1>BannerHub v6</h1>
     <p class="lead" style="margin:0 auto">The next-generation build on the newest GameHub base. Account-free and <strong>privacy-hardened</strong> at the bytecode level, with a curated catalog API, PC-accurate per-game vibration, an in-game performance overlay, GOG integration, and 9 side-by-side variants.</p>
     <div class="pill-row" style="justify-content:center;margin-top:20px">
-      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.2.0-608</span></span>
+      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.3.0-608</span></span>
       <span class="badge">pkg <code>banner.hub</code></span>
       <span class="badge">9 side-by-side variants</span>
       <span class="badge amber">🔒 Privacy-hardened</span>
@@ -97,7 +97,7 @@
       <div class="card fade-up">
         <h3 style="margin-top:0">📲 Experience &amp; packaging</h3>
         <ul class="flist">
-          <li><b>In-game Steam friends &amp; chat overlay</b> — draggable pill for your friends list, presence, unread badges and inline read/reply chat. No root.</li>
+          <li><b>In-game Steam friends, chat &amp; voice overlay</b> — draggable pill for your friends list, presence, unread badges, inline read/reply chat (emoji, stickers, images, invite cards) and <b>1:1 + party voice calls</b>. No root.</li>
           <li><b>In-game performance overlay</b> (root) — draggable pill for CPU-governor &amp; Adreno-clock toggles, auto-reverts on exit.</li>
           <li><b>BannerHub Explore homepage</b> with What's-New, version readout &amp; update banner.</li>
           <li><b>Recording-compatible audio</b> toggle, muted UI sounds, root-free file-manager access.</li>
@@ -154,6 +154,15 @@
     <div class="timeline">
 
       <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v1.3.0-608</span><span class="date">2026-06-16</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.3.0-608" target="_blank" rel="noopener">release notes ↗</a></div>
+        <p class="rel-sub">🎧 In-game Steam voice calls (1:1 &amp; party)</p>
+        <p class="rel-desc">The Steam overlay can now place <b>real voice calls</b> while you're in a game — no root, no extra app. Tap a friend's 🎙 to ring them; the call rides on <b>WebRTC</b> served from the BannerHub Cloudflare Worker (a real HTTPS origin, so the mic actually opens) with <b>Cloudflare Realtime TURN</b> for cross-network / strict-NAT peers — <b>device-confirmed across different ISPs</b>. A draggable call window (independent of the chat panel) collapses to a compact <code>🎧 N in call</code> tile with a running timer, mute and hang-up; incoming calls pop an Answer / Ignore box labelled with the caller's name (30 s auto-dismiss) with full <b>ringtone settings</b> — synth tones, bundled ringtones, your own MP3 or silent, plus volume, preview and vibrate. <b>Party calls</b> add more friends to a connected call over a peer-to-peer mesh with a live roster, and a 🔗 <b>share-call link</b> lets anyone with a browser (a PC, another emulator, a non-BannerHub device) join as a guest. The collapsed pill shows a green 🎧 party-count badge and a blue unread-message count.</p>
+        <p class="rel-sub">💬 Steam chat overlay v2</p>
+        <p class="rel-desc">The friends/chat overlay (still <b>no root</b>) gains a 3-tab picker (Unicode <b>emoji</b>, Steam <b>emoticons</b>, <b>stickers</b>), <b>send image</b> (hosted via the BannerHub Worker so it sidesteps Steam's flaky web-upload), <b>game-invite cards</b> (rendered from BBCode invites with live / expired state), <b>typing indicators</b>, auto-scroll, and a collapsible pill-opacity slider.</p>
+        <p class="rel-desc">Same <code>banner.hub</code> package and stable keystore as the 1.2.0-608 / 1.1.0-608 line — installs straight over it.</p>
+      </div>
+
+      <div class="rel fade-up">
         <div class="rel-head"><span class="ver">v1.2.0-608</span><span class="date">2026-06-08</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.2.0-608" target="_blank" rel="noopener">release notes ↗</a></div>
         <p class="rel-sub">🔒 Firebase Crashlytics fully disabled</p>
         <p class="rel-desc">Verifying the privacy patches with a live DNS/SNI capture revealed that GameHub's own startup code was <b>re-enabling Crashlytics data collection at runtime</b>, silently overriding the manifest kill-switch — so Crashlytics was still phoning home to <code>firebase-settings.crashlytics.com</code>, <code>firebaselogging-pa.googleapis.com</code> (the Firebase "Firelog" transport) and <code>firebaseinstallations.googleapis.com</code>. The new <em>Disable Firebase auto-init</em> patch stops that runtime re-enable while leaving FirebaseApp initialized (so the app launches normally), so the manifest "off" finally holds. <b>Device-confirmed</b>: those three Firebase hosts no longer appear in the app's traffic, and the Firebase-driven share of <code>play.googleapis.com</code> drops too. Firebase Analytics was already dead via a hard manifest flag — so this completes the Firebase shutoff. See <a href="v6-privacy.html">the privacy page</a>.</p>
@@ -296,7 +305,7 @@
       <h2 style="margin-bottom:.3em">Get BannerHub v6</h2>
       <p class="lead" style="margin:0 auto 22px">9 variants ship side-by-side on the GameHub 6.0.8 base. Curious what "privacy-hardened" really means? Read the honest breakdown.</p>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.2.0-608</span></a>
+        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.3.0-608</span></a>
         <a class="btn btn-ghost" href="v6-privacy.html">Privacy details</a>
       </div>
     </div>
