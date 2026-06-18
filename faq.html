@@ -54,7 +54,7 @@
       <details>
         <summary>Which version should I install — Lite, BannerHub, or v6?</summary>
         <div class="faq-body">
-          <p><b>BannerHub</b> (v3.7.x) is the most mature, full-featured choice for most people. <b>BannerHub Lite</b> is the lighter build for lower-end or storage-limited devices. <b>BannerHub v6</b> is the newest base (GameHub 6.0.9) with bytecode-level privacy hardening, but is still a work in progress with different game compatibility.</p>
+          <p><b>BannerHub</b> (v3.8.x) is the most mature, full-featured choice for most people. <b>BannerHub Lite</b> is the lighter build for lower-end or storage-limited devices. <b>BannerHub v6</b> is the newest base (GameHub 6.0.9) with bytecode-level privacy hardening, but is still a work in progress with different game compatibility.</p>
           <p>See the full <a href="compare.html">side-by-side comparison</a> to decide.</p>
         </div>
       </details>
@@ -88,11 +88,11 @@
     <div class="faq fade-up">
       <details>
         <summary>Is my activity tracked?</summary>
-        <div class="faq-body"><p>BannerHub v6 kills eight upstream telemetry channels (Firebase, GMS Measurement, Mob Push, Ad-ID, OTA, heartbeat and XiaoJi's analytics endpoints) at the bytecode/manifest level — verified as zero DNS queries in testing. It also honestly documents the connections that <em>remain</em> (image CDNs, a vestigial Firebase endpoint, and the BannerHub catalog Worker). See the <a href="v6-privacy.html">privacy page</a>. The 5.x builds (Lite &amp; BannerHub) neutralise the in-app update phone-home but don't ship the full v6 hardening stack.</p></div>
+        <div class="faq-body"><p>BannerHub v6 kills eight upstream telemetry channels (Firebase Analytics + Crashlytics, GMS Measurement, Mob Push, Ad-ID, OTA, heartbeat and XiaoJi's analytics endpoints) at the bytecode/manifest level — verified as zero tracking-server connections in on-device testing (most recently a live capture on the 6.0.9 stable). It also honestly documents the connections that <em>remain</em> (image CDNs, Google Play Services, XiaoJi's functional account backend, and the BannerHub catalog Worker). See the <a href="v6-privacy.html">privacy page</a>. The 5.x builds (Lite &amp; BannerHub) neutralise the in-app update phone-home but don't ship the full v6 hardening stack.</p></div>
       </details>
       <details>
         <summary>Why does my DNS recorder still show some connections?</summary>
-        <div class="faq-body"><p>Because BannerHub doesn't pretend the device goes silent. Cover-art CDNs (<code>bigeyes.com</code>, Steam's Akamai), a vestigial Firebase settings GET that nothing acts on, GOG/Steam vendor endpoints, and the BannerHub catalog Worker are all expected and explained on the <a href="v6-privacy.html#leave">privacy page</a>. None carry per-user telemetry.</p></div>
+        <div class="faq-body"><p>Because BannerHub doesn't pretend the device goes silent. Cover-art CDNs (<code>bigeyes.com</code>, Steam's Akamai), Google Play Services (a system component we can't patch), XiaoJi's functional account backend, GOG/Steam vendor endpoints, and the BannerHub catalog Worker are all expected and explained on the <a href="v6-privacy.html#leave">privacy page</a>. None carry per-user telemetry.</p></div>
       </details>
       <details>
         <summary>Is it safe? Can I trust the builds?</summary>
