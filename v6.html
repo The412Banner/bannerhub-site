@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BannerHub v6 — features &amp; changelog</title>
-<meta name="description" content="BannerHub v6 — the next-gen build on XiaoJi GameHub 6.0.8. Account-free, privacy-hardened (8 telemetry channels killed), curated catalog API, PC-accurate vibration, GOG integration, an in-game Steam chat &amp; voice-call overlay, performance overlay, and 9 side-by-side variants. Full feature list and per-release changelog.">
+<meta name="description" content="BannerHub v6 — the next-gen build on XiaoJi GameHub 6.0.9. Account-free, privacy-hardened (8 telemetry channels killed), curated catalog API, PC-accurate vibration, GOG integration, an in-game Steam chat &amp; voice-call overlay, performance overlay, and 9 side-by-side variants. Full feature list and per-release changelog.">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b48cff'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
 </head>
@@ -38,11 +38,11 @@
 
 <main>
   <section class="hero wrap" style="padding-bottom:26px">
-    <p class="eyebrow" style="color:var(--purple)">Based on XiaoJi GameHub 6.0.8 · new pipeline</p>
+    <p class="eyebrow" style="color:var(--purple)">Based on XiaoJi GameHub 6.0.9 · new pipeline</p>
     <h1>BannerHub v6</h1>
     <p class="lead" style="margin:0 auto">The next-generation build on the newest GameHub base. Account-free and <strong>privacy-hardened</strong> at the bytecode level, with a curated catalog API, PC-accurate per-game vibration, an in-game performance overlay, GOG integration, and 9 side-by-side variants.</p>
     <div class="pill-row" style="justify-content:center;margin-top:20px">
-      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.3.1-608</span></span>
+      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.0.0-609</span></span>
       <span class="badge">pkg <code>banner.hub</code></span>
       <span class="badge">9 side-by-side variants</span>
       <span class="badge amber">🔒 Privacy-hardened</span>
@@ -109,7 +109,7 @@
 
     <div class="card fade-up" style="margin-top:22px">
       <h3 style="margin-top:0">🧬 How it's built</h3>
-      <p style="margin-top:0">v6 is produced with <b>ReVanced CLI 6.0.0</b> from an unmodified XiaoJi GameHub 6.0.8 base APK (versionCode 119) — only the bytecode and resources the patches need are touched. Builds come from the <code>gamehub-608-build</code> branch. Every patch (login bypass, catalog redirect, privacy hardening, vibration, GOG, in-game Steam chat &amp; perf overlays, and more) is documented in the repo's <a href="https://github.com/The412Banner/bannerhub-revanced#patches-applied" target="_blank" rel="noopener">Patches&nbsp;Applied</a> section. XiaoJi's own −46% size pass keeps each variant to ~47 MB.</p>
+      <p style="margin-top:0">v6 is produced with <b>ReVanced CLI 6.0.0</b> from an unmodified XiaoJi GameHub 6.0.9 base APK (versionCode 121) — only the bytecode and resources the patches need are touched. Builds come from the <code>gamehub-609-build</code> branch. Every patch (login bypass, catalog redirect, privacy hardening, vibration, GOG, in-game Steam chat &amp; perf overlays, and more) is documented in the repo's <a href="https://github.com/The412Banner/bannerhub-revanced#patches-applied" target="_blank" rel="noopener">Patches&nbsp;Applied</a> section. XiaoJi's own −46% size pass keeps each variant to ~47 MB.</p>
     </div>
   </section>
 
@@ -117,11 +117,11 @@
   <section class="section wrap" style="padding-top:0">
     <div class="card fade-up" style="border-left:3px solid var(--purple)">
       <span class="badge purple">🧬 Inherited from the base</span>
-      <h2 style="margin-top:.5em">Built on stock XiaoJi GameHub 6.0.8</h2>
-      <p>Unlike the 5.x builds, BannerHub v6 starts from the <b>unmodified</b> XiaoJi GameHub 6.0.8 APK and applies its own ReVanced patches on top. That means the entire gaming <em>engine</em> is GameHub's — BannerHub v6 changes the app's behaviour (login, telemetry, catalog, per-game tooling), not the runtime that runs your games.</p>
+      <h2 style="margin-top:.5em">Built on stock XiaoJi GameHub 6.0.9</h2>
+      <p>Unlike the 5.x builds, BannerHub v6 starts from the <b>unmodified</b> XiaoJi GameHub 6.0.9 APK and applies its own ReVanced patches on top. That means the entire gaming <em>engine</em> is GameHub's — BannerHub v6 changes the app's behaviour (login, telemetry, catalog, per-game tooling), not the runtime that runs your games.</p>
       <div class="grid grid-2" style="margin-top:6px">
         <div>
-          <h3 style="margin-top:.4em">Comes from GameHub 6.0.8</h3>
+          <h3 style="margin-top:.4em">Comes from GameHub 6.0.9</h3>
           <ul class="flist dot">
             <li><b>Wine + Box64 / FEX runtime</b> — the core that runs Windows games on Android.</li>
             <li><b>Container / Wine-prefix management</b> and the in-game sidebar (Controls / Performance / Settings).</li>
@@ -154,6 +154,16 @@
     <div class="timeline">
 
       <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v1.0.0-609</span><span class="date">2026-06-18</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.0.0-609" target="_blank" rel="noopener">release notes ↗</a></div>
+        <p class="rel-sub">🧱 Rebased onto GameHub 6.0.9 (versionCode 121)</p>
+        <p class="rel-desc">BannerHub v6 moves to XiaoJi's first <em>feature</em> release of the 6.0.x line. 6.0.9 adds a native "Team Room" co-op mode with Tencent in-room voice, but <b>no Wine / DXVK / Box64 / FEX / Turnip changes</b> — so component compatibility is unaffected. As always XiaoJi's R8 pass reshuffled the obfuscated class/method map, so <b>every BannerHub patch was re-fingerprinted against the 6.0.9 bytecode and confirmed on-device</b>. <span class="muted">(Upstream's own Team Room voice is gated behind XiaoJi's paid cloud "Instant Play" service, so it never unlocks on these builds — BannerHub's WebRTC overlay stays the working in-game voice.)</span></p>
+        <p class="rel-sub">🛠️ Offline component picker fixed — first build it actually works</p>
+        <p class="rel-desc">The offline component picker now correctly <b>lists your already-downloaded components when you're offline</b>. A long-standing result-wrapper bug (present on earlier bases) was caught and cured in this rebase. PC-accurate vibration (sustained dual-motor + live intensity scaling), the full per-game menu chain, and the analytics-redirect (<b>net-verified live: zero telemetry egress</b>) are all re-pinned and device-verified.</p>
+        <p class="rel-sub">✅ Everything carries over</p>
+        <p class="rel-desc">The in-game Steam chat + voice-call overlay (including <b>voice room codes</b>, cross-compatible with BannerHub 3.8.0), GOG integration, the Explore homepage, the in-game performance overlay (root), recording-compatible audio, portrait PC-settings and the full privacy-hardening stack all ship forward unchanged. Same <code>banner.hub</code> package and stable keystore as the <code>-608</code> line — installs straight over it.</p>
+      </div>
+
+      <div class="rel fade-up">
         <div class="rel-head"><span class="ver">v1.3.1-608</span><span class="date">2026-06-18</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.3.1-608" target="_blank" rel="noopener">release notes ↗</a></div>
         <p class="rel-sub">🔊 Voice room codes — cross-play with BannerHub 3.8.0</p>
         <p class="rel-desc">The Steam overlay's 🔊 screen can now <b>create or join a voice room by a short code</b> — <b>no Steam friends and no Steam login required</b>. Create mints a 5-character code (or type someone else's to join), and the call box drops straight into the room showing the <b>room code and who's in it</b>, upgrading from a "waiting for others to join…" state to a live call timer the moment someone connects. A <b>BannerHub v6 user and a BannerHub 3.8.0 user can share the same room and talk</b>, in either direction — room codes use the same format on both builds, and it's <b>device-confirmed both ways across different networks</b>. It rides the same WebRTC mesh + Cloudflare Realtime TURN as the 1:1 / party calls; your Steam-native friend &amp; party calls are unchanged.</p>
@@ -294,13 +304,13 @@
       <div class="grid grid-2">
         <ul class="flist dot">
           <li><a href="https://github.com/The412Banner/BannerHub/blob/main/gamehub_reports/GAMEHUB_600_MASTER_MAP.md" target="_blank" rel="noopener">GameHub 6.0.0 Master Map</a> — the base-codebase map the v6 work started from.</li>
-          <li><a href="https://github.com/The412Banner/bannerhub-revanced/tree/gamehub-608-build/gamehub_reports" target="_blank" rel="noopener">GameHub bytecode maps &amp; reports</a> — letter maps and design docs for the current base.</li>
-          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-608-build/PROGRESS_LOG.md" target="_blank" rel="noopener">Progress log</a> — running dev journal.</li>
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/tree/gamehub-609-build/gamehub_reports" target="_blank" rel="noopener">GameHub bytecode maps &amp; reports</a> — letter maps and design docs for the current base.</li>
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-609-build/PROGRESS_LOG.md" target="_blank" rel="noopener">Progress log</a> — running dev journal.</li>
         </ul>
         <ul class="flist dot">
-          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-608-build/PRIVACY.md" target="_blank" rel="noopener">PRIVACY.md</a> — the full telemetry kill/leave disclosure.</li>
-          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-608-build/beacon-setup.md" target="_blank" rel="noopener">Front-end launcher setup</a> for Beacon / ES-DE / RetroHRAI / NeoStation.</li>
-          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-608-build/gamehub_reports/GOG_LIBRARY_TAB_DESIGN.md" target="_blank" rel="noopener">GOG library tab design</a> &amp; <a href="https://github.com/The412Banner/bannerhub-revanced/releases" target="_blank" rel="noopener">all releases</a>.</li>
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-609-build/PRIVACY.md" target="_blank" rel="noopener">PRIVACY.md</a> — the full telemetry kill/leave disclosure.</li>
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-609-build/beacon-setup.md" target="_blank" rel="noopener">Front-end launcher setup</a> for Beacon / ES-DE / RetroHRAI / NeoStation.</li>
+          <li><a href="https://github.com/The412Banner/bannerhub-revanced/blob/gamehub-609-build/gamehub_reports/GOG_LIBRARY_TAB_DESIGN.md" target="_blank" rel="noopener">GOG library tab design</a> &amp; <a href="https://github.com/The412Banner/bannerhub-revanced/releases" target="_blank" rel="noopener">all releases</a>.</li>
         </ul>
       </div>
       <p class="muted" style="margin-bottom:0;font-size:.88rem">Full lineage &amp; contributor credits are on the <a href="credits.html">Credits page</a>.</p>
@@ -310,9 +320,9 @@
   <section class="wrap section" style="padding-top:0">
     <div class="card center fade-up" style="background:linear-gradient(180deg,#2c2350,var(--bg-2))">
       <h2 style="margin-bottom:.3em">Get BannerHub v6</h2>
-      <p class="lead" style="margin:0 auto 22px">9 variants ship side-by-side on the GameHub 6.0.8 base. Curious what "privacy-hardened" really means? Read the honest breakdown.</p>
+      <p class="lead" style="margin:0 auto 22px">9 variants ship side-by-side on the GameHub 6.0.9 base. Curious what "privacy-hardened" really means? Read the honest breakdown.</p>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.3.1-608</span></a>
+        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.0.0-609</span></a>
         <a class="btn btn-ghost" href="v6-privacy.html">Privacy details</a>
       </div>
     </div>
