@@ -42,7 +42,7 @@
     <h1>BannerHub</h1>
     <p class="lead" style="margin:0 auto">The full-featured flagship. BannerHub brings deep GOG / Epic / Amazon integrations (DLC, cloud saves, EOS online auth), an in-app downloads manager, AI Frame Generation, PC-accurate rumble, front-end export and a thriving community-config library — all on the mature GameHub 5.3.5 ReVanced base.</p>
     <div class="pill-row" style="justify-content:center;margin-top:20px">
-      <span class="badge ver">Latest: <span data-auto="ver:full">v3.7.5</span></span>
+      <span class="badge ver">Latest: <span data-auto="ver:full">v3.8.0</span></span>
       <span class="badge">pkg <code>banner.hub</code></span>
       <span class="badge">9 variants</span>
       <span class="badge blue">Pinned to 5.3.5 base (Steam card support)</span>
@@ -139,6 +139,15 @@
     <div class="timeline">
 
       <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v3.8.0</span><span class="date">2026-06-18</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.8.0" target="_blank" rel="noopener">release notes ↗</a></div>
+        <ul>
+          <li><b>In-game voice chat</b> — a built-in, room-based voice overlay you can use while in a game, with <b>no Steam account and no root</b>. Pick a nickname, then Create or Join a room by a short code (or share a join link); an in-game pill opens a room box with the live roster, call timer, mute and leave.</li>
+          <li><b>Cross-play with BannerHub v6</b> — voice rides the same WebRTC mesh (BannerHub Cloudflare Worker + Cloudflare Realtime TURN) as v6, so a BannerHub user and a BannerHub v6 user can share the same room and talk, in either direction. <b>Device-confirmed both ways across different networks.</b></li>
+          <li><b>Per-game PC Audio Settings</b> — a new "Recording-compatible" PulseAudio mode keeps the stream on the mixer so <b>screen recordings capture in-game sound</b> (stock PulseAudio's exclusive MMAP path otherwise records video with no audio). Per-game, carried by Export / Import Config.</li>
+        </ul>
+      </div>
+
+      <div class="rel fade-up">
         <div class="rel-head"><span class="ver">v3.7.5</span><span class="date">2026-05-21</span><a class="src" href="https://github.com/The412Banner/BannerHub/releases/tag/v3.7.5" target="_blank" rel="noopener">release notes ↗</a></div>
         <ul><li><b>Offline launch for imported PC games</b> — any non-Steam game that has launched online once will now launch with no network (config / recommendation / dependency tasks are skipped offline and re-sync on reconnect).</li></ul>
       </div>
@@ -246,7 +255,7 @@
           <li><a href="https://github.com/The412Banner/BannerHub/tree/main/game-store-reports" target="_blank" rel="noopener">Store implementation reports</a> — GOG / Epic / Amazon / Steam.</li>
           <li><a href="https://github.com/The412Banner/BannerHub/blob/main/COMMUNITY_CONFIG_REPORT.md" target="_blank" rel="noopener">Community config report</a> &amp; <a href="https://github.com/The412Banner/BannerHub/blob/main/GAMENATIVE_RESEARCH.md" target="_blank" rel="noopener">GameNative research</a>.</li>
           <li><a href="https://github.com/The412Banner/BannerHub/tree/main/migration" target="_blank" rel="noopener">GameHub 6 migration</a> — architecture, feature specs &amp; injection map.</li>
-          <li><a href="https://github.com/The412Banner/BannerHub/blob/main/release_notes_v3.7.5.md" target="_blank" rel="noopener">v3.7.5 release notes</a> &amp; <a href="https://github.com/The412Banner/BannerHub/releases" target="_blank" rel="noopener">all releases</a>.</li>
+          <li><a href="https://github.com/The412Banner/BannerHub/releases/tag/v3.8.0" target="_blank" rel="noopener">v3.8.0 release notes</a> &amp; <a href="https://github.com/The412Banner/BannerHub/releases" target="_blank" rel="noopener">all releases</a>.</li>
         </ul>
       </div>
       <p class="muted" style="margin-bottom:0;font-size:.88rem">Full lineage &amp; contributor credits are on the <a href="credits.html">Credits page</a>.</p>
@@ -258,7 +267,7 @@
       <h2 style="margin-bottom:.3em">Get BannerHub</h2>
       <p class="lead" style="margin:0 auto 22px">Install only official stable releases. Pick the variant matching your existing GameHub package; uninstall first if the signing cert differs.</p>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://github.com/The412Banner/BannerHub/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:full">v3.7.5</span></a>
+        <a class="btn btn-primary" href="https://github.com/The412Banner/BannerHub/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:full">v3.8.0</span></a>
         <a class="btn btn-ghost" href="compare.html">Compare with Lite &amp; v6</a>
       </div>
     </div>

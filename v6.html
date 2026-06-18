@@ -42,7 +42,7 @@
     <h1>BannerHub v6</h1>
     <p class="lead" style="margin:0 auto">The next-generation build on the newest GameHub base. Account-free and <strong>privacy-hardened</strong> at the bytecode level, with a curated catalog API, PC-accurate per-game vibration, an in-game performance overlay, GOG integration, and 9 side-by-side variants.</p>
     <div class="pill-row" style="justify-content:center;margin-top:20px">
-      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.3.0-608</span></span>
+      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.3.1-608</span></span>
       <span class="badge">pkg <code>banner.hub</code></span>
       <span class="badge">9 side-by-side variants</span>
       <span class="badge amber">🔒 Privacy-hardened</span>
@@ -154,6 +154,13 @@
     <div class="timeline">
 
       <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v1.3.1-608</span><span class="date">2026-06-18</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.3.1-608" target="_blank" rel="noopener">release notes ↗</a></div>
+        <p class="rel-sub">🔊 Voice room codes — cross-play with BannerHub 3.8.0</p>
+        <p class="rel-desc">The Steam overlay's 🔊 screen can now <b>create or join a voice room by a short code</b> — <b>no Steam friends and no Steam login required</b>. Create mints a 5-character code (or type someone else's to join), and the call box drops straight into the room showing the <b>room code and who's in it</b>, upgrading from a "waiting for others to join…" state to a live call timer the moment someone connects. A <b>BannerHub v6 user and a BannerHub 3.8.0 user can share the same room and talk</b>, in either direction — room codes use the same format on both builds, and it's <b>device-confirmed both ways across different networks</b>. It rides the same WebRTC mesh + Cloudflare Realtime TURN as the 1:1 / party calls; your Steam-native friend &amp; party calls are unchanged.</p>
+        <p class="rel-desc">Same <code>banner.hub</code> package and stable keystore as 1.3.0-608 — installs straight over it.</p>
+      </div>
+
+      <div class="rel fade-up">
         <div class="rel-head"><span class="ver">v1.3.0-608</span><span class="date">2026-06-16</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.3.0-608" target="_blank" rel="noopener">release notes ↗</a></div>
         <p class="rel-sub">🎧 In-game Steam voice calls (1:1 &amp; party)</p>
         <p class="rel-desc">The Steam overlay can now place <b>real voice calls</b> while you're in a game — no root, no extra app. Tap a friend's 🎙 to ring them; the call rides on <b>WebRTC</b> served from the BannerHub Cloudflare Worker (a real HTTPS origin, so the mic actually opens) with <b>Cloudflare Realtime TURN</b> for cross-network / strict-NAT peers — <b>device-confirmed across different ISPs</b>. A draggable call window (independent of the chat panel) collapses to a compact <code>🎧 N in call</code> tile with a running timer, mute and hang-up; incoming calls pop an Answer / Ignore box labelled with the caller's name (30 s auto-dismiss) with full <b>ringtone settings</b> — synth tones, bundled ringtones, your own MP3 or silent, plus volume, preview and vibrate. <b>Party calls</b> add more friends to a connected call over a peer-to-peer mesh with a live roster, and a 🔗 <b>share-call link</b> lets anyone with a browser (a PC, another emulator, a non-BannerHub device) join as a guest. The collapsed pill shows a green 🎧 party-count badge and a blue unread-message count.</p>
@@ -305,7 +312,7 @@
       <h2 style="margin-bottom:.3em">Get BannerHub v6</h2>
       <p class="lead" style="margin:0 auto 22px">9 variants ship side-by-side on the GameHub 6.0.8 base. Curious what "privacy-hardened" really means? Read the honest breakdown.</p>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.3.0-608</span></a>
+        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.3.1-608</span></a>
         <a class="btn btn-ghost" href="v6-privacy.html">Privacy details</a>
       </div>
     </div>

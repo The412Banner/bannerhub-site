@@ -9,8 +9,8 @@ The official landing &amp; documentation site for the three BannerHub products â
 | Product | Repo | Base | Latest |
 | --- | --- | --- | --- |
 | **BannerHub Lite** | [Bannerhub-Lite](https://github.com/The412Banner/Bannerhub-Lite) | GameHub Lite 5.1.4 | `v1.0.2` |
-| **BannerHub** | [BannerHub](https://github.com/The412Banner/BannerHub) | GameHub 5.3.5 (ReVanced) | `v3.7.5` |
-| **BannerHub v6** | [bannerhub-revanced](https://github.com/The412Banner/bannerhub-revanced) | XiaoJi GameHub 6.0.8 | `v1.0.0-608` |
+| **BannerHub** | [BannerHub](https://github.com/The412Banner/BannerHub) | GameHub 5.3.5 (ReVanced) | `v3.8.0` |
+| **BannerHub v6** | [bannerhub-revanced](https://github.com/The412Banner/bannerhub-revanced) | XiaoJi GameHub 6.0.8 | `v1.3.1-608` |
 
 The three are **separate projects** with their own package names, keystores, and component/Steam backends â€” they don't update over one another. The site exists to explain the differences and document each one.
 
