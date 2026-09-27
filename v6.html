@@ -42,7 +42,7 @@
     <h1>BannerHub v6</h1>
     <p class="lead" style="margin:0 auto">The next-generation build on the newest GameHub base. Account-free and <strong>privacy-hardened</strong> at the bytecode level, with a curated catalog API served through BannerHub's own PC Engine plugin, a full GOG store on a Rust download engine, a Component Manager for your own drivers and DXVK builds, PC-accurate per-game vibration, in-game Steam and performance overlays, and 9 side-by-side variants.</p>
     <div class="pill-row" style="justify-content:center;margin-top:20px">
-      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.0.0-631</span></span>
+      <span class="badge ver">Latest: <span data-auto="ver:v6">v1.0.1-631</span></span>
       <span class="badge">pkg <code>banner.hub</code></span>
       <span class="badge">9 side-by-side variants</span>
       <span class="badge amber">🔒 Privacy-hardened</span>
@@ -156,6 +156,13 @@
     <div class="timeline">
 
       <div class="rel latest fade-up">
+        <div class="rel-head"><span class="ver">v1.0.1-631</span><span class="date">2026-09-27</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.0.1-631" target="_blank" rel="noopener">release notes ↗</a></div>
+        <p class="rel-sub">🩹 Component Manager removal fixes</p>
+        <p class="rel-desc">Two bugs found right after 1.0.0-631, both in the remove → re-inject path. <b>Removing a component no longer breaks the games that used it</b>: the PC Engine wires the selected translator / DXVK into each game prefix as symlinks and never re-points an existing one, so after a Remove those links dangled and the game died on launch (<code>could not load libarm64ec_import.dll</code>, Wine exit 53). Remove — and opening Component Manager — now clears dead links; the engine plants fresh ones on the next launch. And <b>re-injecting a component you removed no longer claims it "already exists"</b>: the name check read a stale in-process copy of the plugin registry; it now reads the registry file fresh, tells catalog rows from injected ones, and silently heals an orphaned row instead of prompting. <b>Device-proven</b>: inject → use → remove → re-inject (no prompt) → launch.</p>
+        <p class="rel-desc">Nothing else changed since 1.0.0-631 — same PC Engine plugin (111-7), same firmware, same <code>banner.hub</code> package and keystore; installs in place.</p>
+      </div>
+
+      <div class="rel fade-up">
         <div class="rel-head"><span class="ver">v1.0.0-631</span><span class="date">2026-09-27</span><a class="src" href="https://github.com/The412Banner/bannerhub-revanced/releases/tag/v1.0.0-631" target="_blank" rel="noopener">release notes ↗</a></div>
         <p class="rel-sub">🧱 Rebased onto GameHub 6.3.1 (versionCode 141)</p>
         <p class="rel-desc">The biggest base jump so far: from 6.0.9 (versionCode 121) straight to XiaoJi's <b>6.3.1</b>. Since 6.1.0 the whole Wine runtime, launch screen and component system live in a separately-downloaded <b>PC Engine plugin</b>, and 6.3.x added XiaoJi's community/social layer, a newer Steam stack and transactional cloud sync. The 6.1.0 and 6.1.1 lines were onboarded but never shipped as stables. <b>Every BannerHub patch was re-derived against 6.3.1 and confirmed on-device</b>; two obsolete PC-engine signature patches were retired.</p>
@@ -340,7 +347,7 @@
       <h2 style="margin-bottom:.3em">Get BannerHub v6</h2>
       <p class="lead" style="margin:0 auto 22px">9 variants ship side-by-side on the GameHub 6.3.1 base. Curious what "privacy-hardened" really means? Read the honest breakdown.</p>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.0.0-631</span></a>
+        <a class="btn btn-primary" href="https://github.com/The412Banner/bannerhub-revanced/releases/latest" target="_blank" rel="noopener">Download <span data-auto="ver:v6">v1.0.1-631</span></a>
         <a class="btn btn-ghost" href="v6-privacy.html">Privacy details</a>
       </div>
     </div>
