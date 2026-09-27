@@ -72,7 +72,7 @@
     <div class="card fade-up" id="privacy" style="margin-bottom:22px">
       <span class="badge amber">Privacy</span>
       <h2 style="margin-top:.5em">2 · Telemetry stripped at the bytecode level</h2>
-      <p>This is the headline reason. On vanilla GameHub 6.0.9, a normal session phones home to Firebase, Google Play Services Measurement, Mob Push, XiaoJi's analytics endpoints and more. <strong>BannerHub v6 kills eight of those channels in the bytecode and manifest</strong> — the SDKs never initialize, the URLs are never allocated, the components are disabled.</p>
+      <p>This is the headline reason. On vanilla GameHub 6.x, a normal session phones home to Firebase, Google Play Services Measurement, Mob Push, XiaoJi's analytics endpoints and more. <strong>BannerHub v6 kills eight of those channels in the bytecode and manifest</strong> — the SDKs never initialize, the URLs are never allocated, the components are disabled.</p>
       <div class="grid grid-2" style="margin-top:18px">
         <ul class="flist kill">
           <li>Firebase Analytics → <code>app-measurement.com</code></li>
@@ -112,7 +112,7 @@
       <div class="chips">
         <span class="chip">DXVK</span><span class="chip">VKD3D-Proton</span><span class="chip">Box64</span><span class="chip">FEXCore</span><span class="chip">Mesa Turnip drivers</span><span class="chip">Wine / Proton containers</span>
       </div>
-      <p style="margin-top:14px;margin-bottom:0">Add, inject, back up and remove components in-app, pulling from multiple repositories including The412Banner Nightlies. In v6, every per-game picker even works offline, listing what you've already downloaded in catalog order.</p>
+      <p style="margin-top:14px;margin-bottom:0">Add, inject, back up and remove components in-app, pulling from multiple repositories including The412Banner Nightlies. v6 (v1.0.0-631+) adds a Component Manager of its own — inject <code>.wcp</code> components or driver <code>.zip</code>s, or download them from the online repos — and they appear in the normal per-game pickers. <span class="muted">(The offline picker of the 6.0.9 line is paused on 6.3.1.)</span></p>
     </div>
 
     <div class="card fade-up" id="tooling" style="margin-bottom:22px">
@@ -126,7 +126,7 @@
         </ul>
         <ul class="flist">
           <li><b>Wine Task Manager</b> — kill processes, browse the prefix, launch executables from inside the sidebar.</li>
-          <li><b>GPU spoofing</b> (v6) — report a chosen GPU identity to DXVK to clear "unsupported video card" refusals.</li>
+          <li><b>GPU spoofing</b> (v6, 6.0.4 line only — newer bases have a native spoof) — report a chosen GPU identity to DXVK to clear "unsupported video card" refusals.</li>
           <li><b>In-game perf overlay</b> (v6, root) — toggle CPU governor &amp; Adreno clocks without leaving the game.</li>
         </ul>
       </div>
